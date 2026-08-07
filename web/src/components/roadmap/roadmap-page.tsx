@@ -74,7 +74,8 @@ export function RoadmapPage() {
         />
         <div style={{ position: "absolute", left: "50%", bottom: "8%", opacity: 0.35, ...parallaxVehicleStyle }}>
           <ImageSlot
-            alt="Vehicle receding down an open route, low angle"
+            src="/images/roadmap/hero-open-road.png"
+            alt="Vehicle receding down an open mountain road under a dramatic sky"
             placeholder="Vehicle receding down an open route, low angle"
             style={{ width: "min(700px,60vw)", height: "34vh" }}
           />
@@ -112,7 +113,8 @@ export function RoadmapPage() {
       >
         <div style={{ position: "absolute", inset: 0, opacity: 0.22 }}>
           <ImageSlot
-            alt="Pickup truck, grounded, workshop context"
+            src="/images/roadmap/foundation-truck.png"
+            alt="Pickup truck parked in a dim workshop, tool wall in background"
             placeholder="Pickup truck, grounded, workshop context"
             style={{ width: "100%", height: "100%" }}
           />
@@ -164,7 +166,8 @@ export function RoadmapPage() {
       >
         <div style={{ position: "absolute", inset: 0, opacity: 0.22 }}>
           <ImageSlot
-            alt="SUV, off-road setting"
+            src="/images/roadmap/expanding-suv.png"
+            alt="SUV parked on a rocky overlook, mountains and lake in the background"
             placeholder="SUV, off-road setting"
             style={{ width: "100%", height: "100%" }}
           />
@@ -215,7 +218,8 @@ export function RoadmapPage() {
       >
         <div style={{ position: "absolute", inset: 0, opacity: 0.2 }}>
           <ImageSlot
-            alt="Sport sedan with subtle technical overlay lines"
+            src="/images/roadmap/planned-sedan.png"
+            alt="Sport sedan at night against a city skyline, with technical overlay arcs and node lines"
             placeholder="Sport sedan with subtle technical overlay lines"
             style={{ width: "100%", height: "100%" }}
           />
