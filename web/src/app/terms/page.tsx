@@ -2,11 +2,23 @@ import type { Metadata } from "next";
 import { LegalPage } from "@/components/legal/legal-page";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { OG_BASE, TWITTER_IMAGES } from "@/lib/site";
+
+const title = "Terms of Service";
+const description =
+  "These terms explain the rules, responsibilities, limitations, and conditions that apply when using DreamBuild.";
 
 export const metadata: Metadata = {
-  title: "DreamBuild Terms of Service",
-  description:
-    "These terms explain the rules, responsibilities, limitations, and conditions that apply when using DreamBuild.",
+  title,
+  description,
+  alternates: { canonical: "/terms" },
+  // TODO(legal): this page still contains placeholder copy pending final legal
+  // review. Once approved legal text replaces the placeholders, remove this
+  // `robots` override (restoring the default index,follow) and add "/terms"
+  // back into src/app/sitemap.ts.
+  robots: { index: false, follow: true },
+  openGraph: { ...OG_BASE, title, description, url: "/terms" },
+  twitter: { card: "summary_large_image", title, description, images: TWITTER_IMAGES },
 };
 
 const SECTIONS = [

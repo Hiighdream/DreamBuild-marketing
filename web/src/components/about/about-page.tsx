@@ -135,7 +135,7 @@ export function AboutPage() {
         <div style={{ position: "absolute", inset: 0, opacity: 0.21 }}>
           <ImageSlot
             src="/images/about/problem-interior.png"
-            alt="Sedan interior at night, dashboard detail with scattered receipts and papers"
+            alt=""
             placeholder="Sedan interior, dashboard detail"
             style={{ width: "100%", height: "100%" }}
           />
@@ -345,7 +345,7 @@ export function AboutPage() {
         <div style={{ position: "absolute", inset: 0, opacity: 0.2 }}>
           <ImageSlot
             src="/images/about/vision-classic-modern.png"
-            alt="Classic muscle coupe alongside a modern coupe, mountains and open sky at dusk"
+            alt=""
             placeholder="Classic vehicle alongside a modern coupe, open sky"
             style={{ width: "100%", height: "100%" }}
           />

@@ -75,9 +75,10 @@ export function RoadmapPage() {
         <div style={{ position: "absolute", left: "50%", bottom: "8%", opacity: 0.35, ...parallaxVehicleStyle }}>
           <ImageSlot
             src="/images/roadmap/hero-open-road.png"
-            alt="Vehicle receding down an open mountain road under a dramatic sky"
+            alt=""
             placeholder="Vehicle receding down an open route, low angle"
             style={{ width: "min(700px,60vw)", height: "34vh" }}
+            priority
           />
         </div>
         {heroClouds.map((c) => (
@@ -114,7 +115,7 @@ export function RoadmapPage() {
         <div style={{ position: "absolute", inset: 0, opacity: 0.22 }}>
           <ImageSlot
             src="/images/roadmap/foundation-truck.png"
-            alt="Pickup truck parked in a dim workshop, tool wall in background"
+            alt=""
             placeholder="Pickup truck, grounded, workshop context"
             style={{ width: "100%", height: "100%" }}
           />
@@ -167,7 +168,7 @@ export function RoadmapPage() {
         <div style={{ position: "absolute", inset: 0, opacity: 0.22 }}>
           <ImageSlot
             src="/images/roadmap/expanding-suv.png"
-            alt="SUV parked on a rocky overlook, mountains and lake in the background"
+            alt=""
             placeholder="SUV, off-road setting"
             style={{ width: "100%", height: "100%" }}
           />
@@ -219,7 +220,7 @@ export function RoadmapPage() {
         <div style={{ position: "absolute", inset: 0, opacity: 0.2 }}>
           <ImageSlot
             src="/images/roadmap/planned-sedan.png"
-            alt="Sport sedan at night against a city skyline, with technical overlay arcs and node lines"
+            alt=""
             placeholder="Sport sedan with subtle technical overlay lines"
             style={{ width: "100%", height: "100%" }}
           />

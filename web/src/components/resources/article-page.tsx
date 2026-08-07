@@ -66,7 +66,12 @@ export function ArticlePage({ article }: { article: Article }) {
       <div style={{ position: "relative", background: "#0A1A2F" }}>
         <section style={{ position: "relative", padding: "160px 8vw 60px", overflow: "hidden" }}>
           <div style={{ position: "absolute", inset: 0, opacity: 0.15 }}>
-            <ImageSlot alt={article.heroImageAlt} placeholder={article.heroImageAlt} style={{ width: "100%", height: "100%" }} />
+            <ImageSlot
+              alt={article.heroImageAlt}
+              placeholder={article.heroImageAlt}
+              style={{ width: "100%", height: "100%" }}
+              priority
+            />
           </div>
           <div
             style={{
@@ -127,6 +132,7 @@ export function ArticlePage({ article }: { article: Article }) {
             alt={article.heroImageAlt}
             placeholder={article.heroImageAlt}
             style={{ width: "100%", height: "100%" }}
+            priority
           />
         </div>
         <div
