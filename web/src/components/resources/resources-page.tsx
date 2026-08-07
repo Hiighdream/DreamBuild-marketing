@@ -29,9 +29,10 @@ export function ResourcesPage() {
         <div style={{ position: "absolute", inset: 0, opacity: 0.16 }}>
           <ImageSlot
             src="/images/resources/hero-workbench.png"
-            alt="Garage workbench with notebook, laptop, and tools, vehicle in background, editorial tone"
+            alt=""
             placeholder="Garage workbench / dashboard, editorial tone"
             style={{ width: "100%", height: "100%" }}
+            priority
           />
         </div>
         <div
@@ -42,6 +43,31 @@ export function ResourcesPage() {
           }}
         />
         <div style={{ position: "relative", maxWidth: 700, margin: "0 auto", textAlign: "center" }}>
+          <nav aria-label="Breadcrumb" style={{ marginBottom: 18 }}>
+            <ol
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                flexWrap: "wrap",
+                gap: 8,
+                listStyle: "none",
+                margin: 0,
+                padding: 0,
+                fontSize: 12,
+                color: "#5C7188",
+              }}
+            >
+              <li>
+                <Link href="/" style={{ color: "#5C7188", textDecoration: "none" }}>
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden>/</li>
+              <li aria-current="page" style={{ color: "#9BA9B8" }}>
+                Resources
+              </li>
+            </ol>
+          </nav>
           <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.12em", color: "#3DC9F7", marginBottom: 14 }}>
             DREAMBUILD RESOURCES
           </div>

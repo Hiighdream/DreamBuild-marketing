@@ -26,9 +26,10 @@ export function LegalPage({ eyebrow, title, intro, sections, contactHref, contac
         <div style={{ position: "absolute", inset: 0, opacity: 0.08 }}>
           <ImageSlot
             src="/images/legal/hero-silhouette.png"
-            alt="Vehicle silhouette in a dim garage doorway"
+            alt=""
             placeholder="Restrained vehicle silhouette / garage interior"
             style={{ width: "100%", height: "100%" }}
+            priority
           />
         </div>
         <div

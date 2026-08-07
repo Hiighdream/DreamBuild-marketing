@@ -32,9 +32,10 @@ export function ContactPage() {
         <div style={{ position: "absolute", inset: 0, opacity: 0.14 }}>
           <ImageSlot
             src="/images/contact/hero-underlay.png"
-            alt="Vehicle silhouette at dusk under a network of connection lines, city lights on the horizon"
+            alt=""
             placeholder="Vehicle underlay, low opacity, technical connection lines"
             style={{ width: "100%", height: "100%" }}
+            priority
           />
         </div>
         <div
