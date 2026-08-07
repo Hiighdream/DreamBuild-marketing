@@ -92,9 +92,11 @@ export function AboutPage() {
           }}
         >
           <ImageSlot
+            src="/images/about/hero-garage.png"
             alt="Vehicle in a garage/workshop, surrounded by ownership artifacts"
             placeholder="Vehicle in a garage/workshop, surrounded by ownership artifacts"
             style={{ width: 399, height: 311 }}
+            priority
           />
         </div>
         <div style={fragStyle("16%")}>
@@ -132,7 +134,8 @@ export function AboutPage() {
       >
         <div style={{ position: "absolute", inset: 0, opacity: 0.21 }}>
           <ImageSlot
-            alt="Sedan interior, dashboard detail"
+            src="/images/about/problem-interior.png"
+            alt="Sedan interior at night, dashboard detail with scattered receipts and papers"
             placeholder="Sedan interior, dashboard detail"
             style={{ width: "100%", height: "100%" }}
           />
@@ -270,7 +273,7 @@ export function AboutPage() {
                 key={a.id}
                 style={{ position: "relative", borderRadius: 6, overflow: "hidden", height: 220 }}
               >
-                <ImageSlot alt={a.label} placeholder={a.placeholder} style={{ width: "100%", height: "100%" }} />
+                <ImageSlot src={a.src} alt={a.label} placeholder={a.placeholder} style={{ width: "100%", height: "100%" }} />
                 <div
                   style={{
                     position: "absolute",
@@ -341,7 +344,8 @@ export function AboutPage() {
       >
         <div style={{ position: "absolute", inset: 0, opacity: 0.2 }}>
           <ImageSlot
-            alt="Classic vehicle alongside a modern coupe, open sky"
+            src="/images/about/vision-classic-modern.png"
+            alt="Classic muscle coupe alongside a modern coupe, mountains and open sky at dusk"
             placeholder="Classic vehicle alongside a modern coupe, open sky"
             style={{ width: "100%", height: "100%" }}
           />

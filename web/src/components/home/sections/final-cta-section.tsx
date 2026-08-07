@@ -10,7 +10,8 @@ export function FinalCtaSection() {
     >
       <div style={{ position: "absolute", inset: 0, opacity: 0.7 }}>
         <ImageSlot
-          alt="Open road / clear sky, vehicle and Bay together"
+          src="/images/home/final-cta-road.png"
+          alt="Sedan at dusk on a coastal road, dashboard HUD overlay converging toward the vehicle"
           placeholder="Open road / clear sky, vehicle and Bay together"
           style={{ width: "100%", height: "100%" }}
         />

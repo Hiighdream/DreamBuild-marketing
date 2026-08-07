@@ -28,7 +28,8 @@ export function ResourcesPage() {
       <section style={{ position: "relative", padding: "170px 8vw 90px", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, opacity: 0.16 }}>
           <ImageSlot
-            alt="Garage workbench / dashboard, editorial tone"
+            src="/images/resources/hero-workbench.png"
+            alt="Garage workbench with notebook, laptop, and tools, vehicle in background, editorial tone"
             placeholder="Garage workbench / dashboard, editorial tone"
             style={{ width: "100%", height: "100%" }}
           />

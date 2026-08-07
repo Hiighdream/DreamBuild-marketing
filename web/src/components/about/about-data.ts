@@ -14,14 +14,49 @@ export const PRINCIPLES = [
   },
 ];
 
-export const AUDIENCES = [
-  { id: "ab-a1", label: "Everyday commuter owner", placeholder: "Commuter sedan, city street" },
-  { id: "ab-a2", label: "Multi-vehicle household", placeholder: "Driveway with two vehicles" },
-  { id: "ab-a3", label: "Automotive enthusiast", placeholder: "Performance coupe, detail shot" },
-  { id: "ab-a4", label: "Truck or off-road owner", placeholder: "Truck on unpaved trail" },
-  { id: "ab-a5", label: "Classic vehicle owner", placeholder: "Classic vehicle, garage setting" },
-  { id: "ab-a6", label: "Event participant", placeholder: "Vehicles gathered at a meetup" },
-  { id: "ab-a7", label: "Owner preserving service records", placeholder: "Service receipt on a dashboard" },
+export const AUDIENCES: { id: string; label: string; placeholder: string; src?: string }[] = [
+  {
+    id: "ab-a1",
+    label: "Everyday commuter owner",
+    placeholder: "Commuter sedan, city street",
+    src: "/images/about/audience-commuter.png",
+  },
+  {
+    id: "ab-a2",
+    label: "Multi-vehicle household",
+    placeholder: "Driveway with two vehicles",
+    src: "/images/about/audience-multivehicle.png",
+  },
+  {
+    id: "ab-a3",
+    label: "Automotive enthusiast",
+    placeholder: "Performance coupe, detail shot",
+    src: "/images/about/audience-enthusiast.png",
+  },
+  {
+    id: "ab-a4",
+    label: "Truck or off-road owner",
+    placeholder: "Truck on unpaved trail",
+    src: "/images/about/audience-truck.png",
+  },
+  {
+    id: "ab-a5",
+    label: "Classic vehicle owner",
+    placeholder: "Classic vehicle, garage setting",
+    src: "/images/about/audience-classic.png",
+  },
+  {
+    id: "ab-a6",
+    label: "Event participant",
+    placeholder: "Vehicles gathered at a meetup",
+    src: "/images/about/audience-event.png",
+  },
+  {
+    id: "ab-a7",
+    label: "Owner preserving service records",
+    placeholder: "Service receipt on a dashboard",
+    src: "/images/about/audience-records.png",
+  },
 ];
 
 export const TEAM = [

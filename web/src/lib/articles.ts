@@ -79,7 +79,8 @@ const PUBLISHED: PublishedArticle[] = [
     published: "Jul 2026",
     updated: "Aug 2026",
     readingTime: "6 min read",
-    heroImageAlt: "Editorial hero: organized garage records / digital garage concept",
+    heroImageAlt: "Laptop showing a vehicle dashboard app, service binder and keys on a desk, garage in background",
+    heroImageSrc: "/images/resources/article-digital-garage-hero.png",
     toc: [
       { id: "definition", label: "A quick definition" },
       { id: "why-it-matters", label: "Why it matters" },
