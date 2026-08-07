@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ImageSlot } from "@/components/image-slot";
+import { PolicyMarkdown } from "./policy-markdown";
 
 export type LegalSection = { id: string; label: string };
 
@@ -11,15 +12,37 @@ type LegalPageProps = {
   contactHref: string;
   contactLabel: string;
   keyPoints?: string;
+  /** Real effective/last-updated dates. Omit while a policy is still placeholder
+   * copy — the hero falls back to "pending legal review" and shows the
+   * pending-review notice until both are supplied. */
+  effectiveDate?: string;
+  lastUpdatedDate?: string;
+  /** Approved policy body as Markdown. When supplied, this replaces the
+   * per-section placeholder text entirely; `sections` still drives the
+   * sidebar table of contents. */
+  bodyMarkdown?: string;
 };
 
 /**
  * Shared shell for the two legal pages (Privacy, Terms) — both are
  * structurally identical in the design (restrained, no scroll motion,
- * sticky section nav, placeholder body copy pending legal review) and
- * differ only in copy and section list.
+ * sticky section nav) and differ only in copy, section list, and whether
+ * their body content has been approved yet (`bodyMarkdown`/dates supplied)
+ * or is still placeholder copy pending legal review.
  */
-export function LegalPage({ eyebrow, title, intro, sections, contactHref, contactLabel, keyPoints }: LegalPageProps) {
+export function LegalPage({
+  eyebrow,
+  title,
+  intro,
+  sections,
+  contactHref,
+  contactLabel,
+  keyPoints,
+  effectiveDate,
+  lastUpdatedDate,
+  bodyMarkdown,
+}: LegalPageProps) {
+  const isPending = !effectiveDate;
   return (
     <div style={{ position: "relative", background: "#0A1A2F" }}>
       <section style={{ position: "relative", padding: "160px 8vw 60px", overflow: "hidden" }}>
@@ -55,24 +78,26 @@ export function LegalPage({ eyebrow, title, intro, sections, contactHref, contac
           </h1>
           <p style={{ fontSize: 15, lineHeight: 1.6, color: "#C7D1DB", margin: "0 0 16px" }}>{intro}</p>
           <div style={{ display: "flex", gap: 16, fontSize: 12, color: "#5C7188" }}>
-            <span>Effective date: pending legal review</span>
+            <span>Effective date: {effectiveDate ?? "pending legal review"}</span>
             <span>·</span>
-            <span>Last updated: pending legal review</span>
+            <span>Last updated: {lastUpdatedDate ?? "pending legal review"}</span>
           </div>
-          <div
-            style={{
-              marginTop: 18,
-              padding: "12px 16px",
-              background: "rgba(232,163,61,0.08)",
-              border: "1px solid rgba(232,163,61,0.3)",
-              borderRadius: 6,
-              fontSize: 12,
-              color: "#E8C89A",
-            }}
-          >
-            This page shows placeholder structure and copy for design purposes. Final wording must
-            be reviewed and approved against the actual policy before publication.
-          </div>
+          {isPending && (
+            <div
+              style={{
+                marginTop: 18,
+                padding: "12px 16px",
+                background: "rgba(232,163,61,0.08)",
+                border: "1px solid rgba(232,163,61,0.3)",
+                borderRadius: 6,
+                fontSize: 12,
+                color: "#E8C89A",
+              }}
+            >
+              This page shows placeholder structure and copy for design purposes. Final wording must
+              be reviewed and approved against the actual policy before publication.
+            </div>
+          )}
         </div>
       </section>
 
@@ -104,22 +129,26 @@ export function LegalPage({ eyebrow, title, intro, sections, contactHref, contac
                 {keyPoints}
               </div>
             )}
-            {sections.map((s) => (
-              <div key={s.id} id={s.id} style={{ marginBottom: 36 }}>
-                <h2
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontWeight: 700,
-                    fontSize: 20,
-                    margin: "0 0 10px",
-                    color: "#F4F6F8",
-                  }}
-                >
-                  {s.label}
-                </h2>
-                <p style={{ margin: 0, color: "#9BA9B8" }}>Placeholder — pending final legal language for this section.</p>
-              </div>
-            ))}
+            {bodyMarkdown ? (
+              <PolicyMarkdown markdown={bodyMarkdown} />
+            ) : (
+              sections.map((s) => (
+                <div key={s.id} id={s.id} style={{ marginBottom: 36 }}>
+                  <h2
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontWeight: 700,
+                      fontSize: 20,
+                      margin: "0 0 10px",
+                      color: "#F4F6F8",
+                    }}
+                  >
+                    {s.label}
+                  </h2>
+                  <p style={{ margin: 0, color: "#9BA9B8" }}>Placeholder — pending final legal language for this section.</p>
+                </div>
+              ))
+            )}
           </article>
         </div>
       </section>

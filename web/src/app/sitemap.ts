@@ -3,10 +3,11 @@ import { getAllArticles } from "@/lib/articles";
 import { SITE_URL } from "@/lib/site";
 
 /**
- * /privacy and /terms are intentionally excluded — they're temporarily
- * noindex,follow pending final legal review (see the TODO in their page.tsx
- * files). Pending "Coming soon" article stubs are excluded the same way
- * they're excluded from indexing: only published articles are listed here.
+ * Both /privacy and /terms were temporarily excluded while they contained
+ * placeholder legal copy; both are back now that their approved policies
+ * are implemented. Pending "Coming soon" article stubs are excluded the
+ * same way they're excluded from indexing: only published articles are
+ * listed here.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -15,6 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/resources`, changeFrequency: "weekly", priority: 0.8 },
     { url: `${SITE_URL}/about`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/contact`, changeFrequency: "monthly", priority: 0.5 },
+    { url: `${SITE_URL}/privacy`, changeFrequency: "yearly", priority: 0.4 },
+    { url: `${SITE_URL}/terms`, changeFrequency: "yearly", priority: 0.4 },
   ];
 
   const publishedArticleRoutes: MetadataRoute.Sitemap = getAllArticles()
