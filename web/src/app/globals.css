@@ -1,0 +1,38 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #0a1a2f;
+  font-family: var(--font-body);
+  color: #f4f6f8;
+  overflow-x: hidden;
+}
+
+a {
+  color: #3dc9f7;
+}
+
+a:hover {
+  color: #7fdcfa;
+}
+
+[id] {
+  scroll-margin-top: 150px;
+}
+
+::selection {
+  background: #3dc9f7;
+  color: #0a1a2f;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
