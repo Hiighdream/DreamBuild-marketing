@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
+import { AUTH_URL } from "@/lib/site";
 
 const columnHeadingStyle: CSSProperties = {
   fontSize: 12,
@@ -83,8 +84,8 @@ export function SiteFooter() {
         <div>
           <div style={columnHeadingStyle}>ACCOUNT</div>
           <div style={columnListStyle}>
-            <a href="#" style={linkStyle}>Sign In</a>
-            <Link href="/#final" style={linkStyle}>Create Your Garage</Link>
+            <a href={AUTH_URL} style={linkStyle}>Sign In</a>
+            <a href={AUTH_URL} style={linkStyle}>Create Your Garage</a>
           </div>
         </div>
 

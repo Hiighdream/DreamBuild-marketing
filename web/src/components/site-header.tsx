@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
+import { AUTH_URL } from "@/lib/site";
 
 export type NavKey = "roadmap" | "resources" | "about" | "contact" | "";
 
@@ -66,7 +67,7 @@ export function SiteHeader({ active = "" }: { active?: NavKey }) {
           </Link>
         ))}
         <a
-          href="#"
+          href={AUTH_URL}
           style={{
             fontSize: 13,
             fontWeight: 600,
@@ -77,8 +78,8 @@ export function SiteHeader({ active = "" }: { active?: NavKey }) {
         >
           SIGN IN
         </a>
-        <Link
-          href="/#final"
+        <a
+          href={AUTH_URL}
           style={{
             fontSize: 12,
             fontWeight: 700,
@@ -91,7 +92,7 @@ export function SiteHeader({ active = "" }: { active?: NavKey }) {
           }}
         >
           CREATE YOUR GARAGE
-        </Link>
+        </a>
       </nav>
     </header>
   );

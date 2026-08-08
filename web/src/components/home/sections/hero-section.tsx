@@ -3,6 +3,7 @@ import type { CSSProperties } from "react";
 import { ImageSlot } from "@/components/image-slot";
 import { makeClouds } from "@/lib/clouds";
 import { ease, lerp } from "@/lib/motion-math";
+import { AUTH_URL } from "@/lib/site";
 import { PinnedSection } from "../pinned-section";
 import { ctaPrimaryStyle, ctaSecondaryStyle, ctaTertiaryStyle, eyebrowStyle, h1Style, heroBodyStyle } from "../styles";
 
@@ -120,9 +121,9 @@ export function HeroSection({ sectionRef, act, transition, reducedMotion }: Hero
           discovery, automotive events, local resources, and community into one connected platform.
         </p>
         <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
-          <Link href="#final" style={ctaPrimaryStyle}>
+          <a href={AUTH_URL} style={ctaPrimaryStyle}>
             Create Your Garage
-          </Link>
+          </a>
           <Link href="#final" style={ctaSecondaryStyle}>
             Join the Web Launch List
           </Link>

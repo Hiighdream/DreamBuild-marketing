@@ -9,6 +9,7 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { useScrollY } from "@/hooks/use-scroll-y";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
 import { makeClouds } from "@/lib/clouds";
+import { AUTH_URL } from "@/lib/site";
 import { PRIORITY_INPUTS, ROADMAP_MILESTONES } from "./roadmap-data";
 import {
   ctaDiscordStyle,
@@ -97,9 +98,9 @@ export function RoadmapPage() {
             available, what is being expanded, and where the platform is headed.
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
-            <Link href="/#final" style={ctaPrimaryStyle}>
+            <a href={AUTH_URL} style={ctaPrimaryStyle}>
               Create Your Garage
-            </Link>
+            </a>
             <Link href="/#final" style={ctaSecondaryStyle}>
               Join the Web Launch List
             </Link>

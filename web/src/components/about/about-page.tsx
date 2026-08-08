@@ -8,6 +8,7 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { useScrollY } from "@/hooks/use-scroll-y";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
 import { makeClouds } from "@/lib/clouds";
+import { AUTH_URL } from "@/lib/site";
 import { AUDIENCES, PRINCIPLES, TEAM } from "./about-data";
 import {
   bodyPStyle,
@@ -382,9 +383,9 @@ export function AboutPage() {
           <Link href="/roadmap" style={ctaPrimaryLargeStyle}>
             Explore the Roadmap
           </Link>
-          <Link href="/#final" style={ctaSecondaryLargeStyle}>
+          <a href={AUTH_URL} style={ctaSecondaryLargeStyle}>
             Create Your Garage
-          </Link>
+          </a>
         </div>
       </section>
     </div>
