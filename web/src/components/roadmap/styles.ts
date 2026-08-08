@@ -71,21 +71,14 @@ export const ctaTertiaryStyle: CSSProperties = {
   textDecoration: "none",
 };
 
-export const ctaPrimaryLargeStyle: CSSProperties = {
+export const ctaDiscordStyle: CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  gap: 10,
   padding: "15px 28px",
-  background: "#3DC9F7",
-  color: "#0A1A2F",
-  fontWeight: 700,
-  fontSize: 14,
-  borderRadius: 4,
-  textDecoration: "none",
-};
-
-export const ctaSecondaryLargeStyle: CSSProperties = {
-  padding: "15px 28px",
-  border: "1px solid rgba(244,246,248,0.3)",
+  background: "#5865F2",
   color: "#F4F6F8",
-  fontWeight: 600,
+  fontWeight: 700,
   fontSize: 14,
   borderRadius: 4,
   textDecoration: "none",
