@@ -4,6 +4,12 @@ export const SITE_URL = "https://dreambuild.app";
 /** The separate DreamBuild web application (sign-in, Bays, etc.), not part of this repo. */
 export const APP_URL = "https://app.dreambuild.app";
 
+/** Auth entry point for the DreamBuild web app. Use this — not APP_URL — for
+ * "Sign In" / "Create Your Garage" style CTAs that should land a user directly
+ * on the sign-up/login screen. APP_URL stays the bare app origin for
+ * non-auth references (e.g. structured data). */
+export const AUTH_URL = "https://app.dreambuild.app/sign-up-login-screen";
+
 export const SITE_NAME = "DreamBuild";
 
 const OG_IMAGE_ALT = "DreamBuild — your vehicle's digital garage";

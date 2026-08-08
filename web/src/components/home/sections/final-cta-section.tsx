@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ImageSlot } from "@/components/image-slot";
+import { AUTH_URL } from "@/lib/site";
 import { ctaPrimaryLargeStyle, ctaSecondaryLargeStyle } from "../styles";
 
 export function FinalCtaSection() {
@@ -40,9 +41,9 @@ export function FinalCtaSection() {
           capabilities are introduced.
         </p>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 18, flexWrap: "wrap" }}>
-          <Link href="#hero" style={ctaPrimaryLargeStyle}>
+          <a href={AUTH_URL} style={ctaPrimaryLargeStyle}>
             Create Your Garage
-          </Link>
+          </a>
           <Link href="#hero" style={ctaSecondaryLargeStyle}>
             Join the Web Launch List
           </Link>

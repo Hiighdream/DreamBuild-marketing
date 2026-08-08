@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { ImageSlot } from "@/components/image-slot";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
+import { AUTH_URL } from "@/lib/site";
 import { CATEGORIES, GUIDES } from "./resources-data";
 
 const h2Style: CSSProperties = {
@@ -256,8 +257,8 @@ export function ResourcesPage() {
         >
           Organize what you learn around your own vehicle.
         </h2>
-        <Link
-          href="/#final"
+        <a
+          href={AUTH_URL}
           style={{
             padding: "15px 28px",
             background: "#3DC9F7",
@@ -269,7 +270,7 @@ export function ResourcesPage() {
           }}
         >
           Create Your Garage
-        </Link>
+        </a>
       </section>
     </div>
   );

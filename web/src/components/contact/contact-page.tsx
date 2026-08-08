@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { ImageSlot } from "@/components/image-slot";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
+import { AUTH_URL } from "@/lib/site";
 import { CATEGORIES } from "./contact-data";
 
 const labelStyle: CSSProperties = { display: "flex", flexDirection: "column", gap: 6, fontSize: 12, color: "#9BA9B8" };
@@ -188,7 +189,7 @@ export function ContactPage() {
           <Link href="/roadmap">Roadmap</Link>
           <Link href="/privacy">Privacy</Link>
           <Link href="/terms">Terms</Link>
-          <a href="#">Account access</a>
+          <a href={AUTH_URL}>Account access</a>
         </div>
       </section>
 

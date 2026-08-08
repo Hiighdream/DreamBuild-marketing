@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ImageSlot } from "@/components/image-slot";
 import type { Article } from "@/lib/articles";
+import { AUTH_URL } from "@/lib/site";
 import { ArticleBlockView } from "./article-blocks";
 
 const metaSpanStyle = { fontSize: 12, color: "#9BA9B8" };
@@ -42,8 +43,8 @@ function FinalCta() {
       >
         Keep your vehicle records together in a DreamBuild Bay.
       </h2>
-      <Link
-        href="/#final"
+      <a
+        href={AUTH_URL}
         style={{
           padding: "15px 28px",
           background: "#3DC9F7",
@@ -55,7 +56,7 @@ function FinalCta() {
         }}
       >
         Create Your Garage
-      </Link>
+      </a>
     </section>
   );
 }
