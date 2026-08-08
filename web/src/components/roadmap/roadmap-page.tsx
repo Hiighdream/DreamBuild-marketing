@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo } from "react";
 import type { CSSProperties } from "react";
@@ -8,11 +9,10 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { useScrollY } from "@/hooks/use-scroll-y";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
 import { makeClouds } from "@/lib/clouds";
-import { EXPANDING_ITEMS, FOUNDATION_ITEMS, PLANNED_ITEMS, PRIORITY_INPUTS } from "./roadmap-data";
+import { PRIORITY_INPUTS, ROADMAP_MILESTONES } from "./roadmap-data";
 import {
-  ctaPrimaryLargeStyle,
+  ctaDiscordStyle,
   ctaPrimaryStyle,
-  ctaSecondaryLargeStyle,
   ctaSecondaryStyle,
   ctaTertiaryStyle,
   eyebrowStyle,
@@ -23,6 +23,14 @@ import {
   statusBadgeStyle,
 } from "./styles";
 
+/** Color treatment per milestone status label, reusing the same
+ * available/near-term/planned meaning as the previous 3-tier system. */
+function statusColors(label: string): [string, string, string] {
+  if (label === "AVAILABLE NOW") return ["#3DDC84", "rgba(61,220,132,0.12)", "rgba(61,220,132,0.4)"];
+  if (label === "FUTURE") return ["#9BA9B8", "rgba(155,169,184,0.12)", "rgba(155,169,184,0.35)"];
+  return ["#3DC9F7", "rgba(61,201,247,0.12)", "rgba(61,201,247,0.4)"]; // "8/2026", "NEXT"
+}
+
 export function RoadmapPage() {
   const reducedMotion = useReducedMotion();
   const scrollY = useScrollY(reducedMotion);
@@ -30,10 +38,6 @@ export function RoadmapPage() {
 
   const heroClouds = useMemo(
     () => makeClouds("rmh", 4, { topMin: 0, topRange: 55, minSize: 420, sizeRange: 340, opacity: 0.35, blur: 44 }),
-    []
-  );
-  const expandingClouds = useMemo(
-    () => makeClouds("rme", 4, { topMin: 0, topRange: 100, minSize: 420, sizeRange: 320, opacity: 0.3, blur: 40 }),
     []
   );
 
@@ -106,156 +110,55 @@ export function RoadmapPage() {
         </div>
       </section>
 
-      {/* FOUNDATION */}
-      <section
-        id="foundation"
-        ref={refFor("foundation")}
-        style={{ position: "relative", padding: "120px 8vw", overflow: "hidden" }}
-      >
-        <div style={{ position: "absolute", inset: 0, opacity: 0.22 }}>
-          <ImageSlot
-            src="/images/roadmap/foundation-truck.png"
-            alt=""
-            placeholder="Pickup truck, grounded, workshop context"
-            style={{ width: "100%", height: "100%" }}
-          />
-        </div>
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(180deg, rgba(10,26,47,0.75), rgba(10,26,47,0.95))",
-          }}
-        />
-        <div style={{ position: "relative", maxWidth: 1120, margin: "0 auto", ...reveal("foundation") }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-            <span style={statusBadgeStyle("#3DDC84", "rgba(61,220,132,0.12)", "rgba(61,220,132,0.4)")}>
-              AVAILABLE · WEB LAUNCH
-            </span>
-          </div>
-          <h2 style={h2Style(16)}>The foundation of DreamBuild</h2>
-          <p style={sectionBodyStyle}>
-            The initial product connects Garage Bays, vehicle information, records, maintenance,
-            events, community, and supported vehicle experiences.
-          </p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: 14 }}>
-            {FOUNDATION_ITEMS.map((label) => (
-              <div
-                key={label}
-                style={{
-                  padding: "14px 16px",
-                  background: "rgba(19,38,63,0.8)",
-                  border: "1px solid rgba(61,220,132,0.2)",
-                  borderLeft: "2px solid #3DDC84",
-                  borderRadius: 4,
-                  fontSize: 13,
-                  color: "#E8EEF3",
-                }}
-              >
-                {label}
-              </div>
-            ))}
+      {/* ROADMAP GRAPHIC — approved Canva export, primary visual */}
+      <section id="foundation" ref={refFor("foundation")} style={{ position: "relative", padding: "100px 8vw", background: "#060D18" }}>
+        <div style={{ maxWidth: 1400, margin: "0 auto", ...reveal("foundation") }}>
+          <div style={{ overflowX: "auto", borderRadius: 8 }}>
+            <Image
+              src="/images/roadmap/product-roadmap-overview.png"
+              alt="DreamBuild product roadmap graphic showing four milestones along a road: In the Garage (Available Now), Ready for Launch – Web (8/2026), The Next Mile (Next), and Beyond the Horizon (Future)."
+              width={2000}
+              height={1200}
+              style={{ width: "100%", height: "auto", minWidth: 1100, display: "block", borderRadius: 8 }}
+              sizes="(min-width: 1400px) 1400px, 100vw"
+            />
           </div>
         </div>
       </section>
 
-      {/* EXPANDING */}
-      <section
-        id="expanding"
-        ref={refFor("expanding")}
-        style={{ position: "relative", padding: "120px 8vw", overflow: "hidden" }}
-      >
-        <div style={{ position: "absolute", inset: 0, opacity: 0.22 }}>
-          <ImageSlot
-            src="/images/roadmap/expanding-suv.png"
-            alt=""
-            placeholder="SUV, off-road setting"
-            style={{ width: "100%", height: "100%" }}
-          />
-        </div>
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "radial-gradient(ellipse at 60% 40%, rgba(19,38,63,0.65), rgba(6,13,24,0.95))",
-          }}
-        />
-        {expandingClouds.map((c) => (
-          <div key={c.id} style={c.style} />
-        ))}
-        <div style={{ position: "relative", maxWidth: 1120, margin: "0 auto", ...reveal("expanding") }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-            <span style={statusBadgeStyle("#3DC9F7", "rgba(61,201,247,0.12)", "rgba(61,201,247,0.4)")}>
-              EXPANDING
-            </span>
-          </div>
-          <h2 style={h2Style(16)}>Expanding what each Bay can do</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: 14 }}>
-            {EXPANDING_ITEMS.map((label) => (
-              <div
-                key={label}
-                style={{
-                  padding: "14px 16px",
-                  background: "rgba(19,38,63,0.82)",
-                  border: "1px solid rgba(61,201,247,0.25)",
-                  borderLeft: "2px solid #3DC9F7",
-                  borderRadius: 4,
-                  fontSize: 13,
-                  color: "#E8EEF3",
-                }}
-              >
-                {label}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PLANNED */}
-      <section
-        id="planned"
-        ref={refFor("planned")}
-        style={{ position: "relative", padding: "120px 8vw", overflow: "hidden" }}
-      >
-        <div style={{ position: "absolute", inset: 0, opacity: 0.2 }}>
-          <ImageSlot
-            src="/images/roadmap/planned-sedan.png"
-            alt=""
-            placeholder="Sport sedan with subtle technical overlay lines"
-            style={{ width: "100%", height: "100%" }}
-          />
-        </div>
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background: "linear-gradient(180deg, rgba(6,13,24,0.9), rgba(10,26,47,0.85))",
-          }}
-        />
-        <div style={{ position: "relative", maxWidth: 1120, margin: "0 auto", ...reveal("planned") }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 16 }}>
-            <span style={statusBadgeStyle("#9BA9B8", "rgba(155,169,184,0.12)", "rgba(155,169,184,0.35)")}>
-              PLANNED
-            </span>
-          </div>
-          <h2 style={h2Style(14)}>Deeper vehicle awareness</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: 14 }}>
-            {PLANNED_ITEMS.map((label) => (
-              <div
-                key={label}
-                style={{
-                  padding: "14px 16px",
-                  background: "rgba(19,38,63,0.7)",
-                  border: "1px solid rgba(155,169,184,0.2)",
-                  borderLeft: "2px solid #5C7188",
-                  borderRadius: 4,
-                  fontSize: 13,
-                  color: "#C7D1DB",
-                }}
-              >
-                {label}
-              </div>
-            ))}
+      {/* ROADMAP DETAILS — accessible/indexable text equivalent of the graphic above */}
+      <section aria-labelledby="roadmap-details-heading" style={{ position: "relative", padding: "0 8vw 100px", background: "#060D18" }}>
+        <div style={{ maxWidth: 1120, margin: "0 auto" }}>
+          <h2 id="roadmap-details-heading" style={{ ...h2Style(999), fontSize: 22, marginBottom: 28, color: "#9BA9B8" }}>
+            Roadmap details
+          </h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(220px,1fr))", gap: 32 }}>
+            {ROADMAP_MILESTONES.map((m) => {
+              const [color, bg, border] = statusColors(m.statusLabel);
+              return (
+                <div key={m.id}>
+                  <span style={{ ...statusBadgeStyle(color, bg, border), marginBottom: 10, display: "inline-block" }}>
+                    {m.statusLabel}
+                  </span>
+                  <h3
+                    style={{
+                      fontFamily: "var(--font-display)",
+                      fontWeight: 700,
+                      fontSize: 17,
+                      margin: "10px 0 10px",
+                      color: "#F4F6F8",
+                    }}
+                  >
+                    {m.number}. {m.title}
+                  </h3>
+                  <ul style={{ margin: 0, paddingLeft: 18, fontSize: 14, lineHeight: 1.7, color: "#9BA9B8" }}>
+                    {m.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -303,19 +206,17 @@ export function RoadmapPage() {
         </p>
       </section>
 
-      {/* FINAL CTA */}
-      <section style={{ position: "relative", padding: "120px 8vw", background: "#060D18", textAlign: "center" }}>
-        <h2 style={{ ...h2Style(999), fontSize: "clamp(28px, 3.6vw, 44px)", margin: "0 0 22px" }}>
-          Help shape what comes next.
+      {/* DISCORD CTA */}
+      <section style={{ position: "relative", padding: "100px 8vw 140px", background: "#060D18", textAlign: "center" }}>
+        <h2 style={{ ...h2Style(999), fontSize: "clamp(28px, 3.6vw, 44px)", margin: "0 0 18px" }}>
+          Stay up to date. Shape what comes next.
         </h2>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16, flexWrap: "wrap" }}>
-          <Link href="/#final" style={ctaPrimaryLargeStyle}>
-            Create Your Garage
-          </Link>
-          <Link href="/contact" style={ctaSecondaryLargeStyle}>
-            Contact DreamBuild
-          </Link>
-        </div>
+        <p style={{ fontSize: 16, lineHeight: 1.65, color: "#C7D1DB", maxWidth: "56ch", margin: "0 auto 32px" }}>
+          Join the DreamBuild Discord to follow roadmap progress and submit feature requests and feedback.
+        </p>
+        <a href="#" style={ctaDiscordStyle}>
+          Join the Discord
+        </a>
       </section>
     </div>
   );

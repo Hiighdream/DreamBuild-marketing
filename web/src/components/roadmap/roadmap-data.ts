@@ -1,37 +1,74 @@
-export const FOUNDATION_ITEMS = [
-  "Garage Bays",
-  "Vehicle information",
-  "Service records",
-  "Maintenance history",
-  "Basic VIN decoding",
-  "Events and RSVPs",
-  "Community functionality",
-  "Supported 3D vehicle experiences",
-  "Leroy guidance",
-  "Local-resource discovery where available",
-];
+export type RoadmapMilestone = {
+  id: string;
+  number: string;
+  statusLabel: string;
+  title: string;
+  items: string[];
+};
 
-export const EXPANDING_ITEMS = [
-  "Broader vehicle coverage",
-  "Additional 3D models",
-  "More vehicle hotspots",
-  "Expanded parts inventory",
-  "Improved fitment information",
-  "Better local shop discovery",
-  "Wishlists",
-  "Purchase history",
-  "Expanded maintenance guidance",
-  "Deeper Leroy context",
-];
-
-export const PLANNED_ITEMS = [
-  "Recall enhancements",
-  "OBD integration",
-  "Vehicle analytics",
-  "Additional service intelligence",
-  "Expanded assistant capabilities",
-  "Deeper personalization",
-  "Native mobile expansion",
+/**
+ * Transcribed verbatim from the approved Canva export
+ * (public/images/roadmap/product-roadmap-overview.png) — this is the text
+ * equivalent of that graphic's four milestone cards, kept as real DOM
+ * content so the facts aren't accessible/indexable only as pixels.
+ */
+export const ROADMAP_MILESTONES: RoadmapMilestone[] = [
+  {
+    id: "in-the-garage",
+    number: "01",
+    statusLabel: "AVAILABLE NOW",
+    title: "In the Garage",
+    items: [
+      "Garage Bays",
+      "Service Records",
+      "Basic VIN Decoding",
+      "Community",
+      "Events + RSVP",
+      "Basic 3D Vehicle Viewer",
+      "Leroy Assistant v1",
+    ],
+  },
+  {
+    id: "ready-for-launch",
+    number: "02",
+    statusLabel: "8/2026",
+    title: "Ready for Launch - Web",
+    items: [
+      "Wishlists",
+      "Purchase History",
+      "Shop Finder",
+      "Expanded Events",
+      "Maintenance Guides",
+      "Service Reminders",
+      "Regional 3D Hotspots",
+      "Expanded 3D Vehicle Viewerr",
+    ],
+  },
+  {
+    id: "the-next-mile",
+    number: "03",
+    statusLabel: "NEXT",
+    title: "The Next Mile",
+    items: [
+      "Parts Marketplace Supplier Partnerships",
+      "Compatible Part Discovery",
+      "Deeper Leroy Assistance",
+      "Recalls + Vehicle Notes",
+      "Mobile Experience",
+    ],
+  },
+  {
+    id: "beyond-the-horizon",
+    number: "04",
+    statusLabel: "FUTURE",
+    title: "Beyond the Horizon",
+    items: [
+      "OBD Integration",
+      "Vehicle Analytics",
+      "Smarter Garage Intelligence",
+      "Expanded Automotive Ecosystem",
+    ],
+  },
 ];
 
 export const PRIORITY_INPUTS = [
