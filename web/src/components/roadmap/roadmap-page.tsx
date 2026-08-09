@@ -9,7 +9,7 @@ import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { useScrollY } from "@/hooks/use-scroll-y";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
 import { makeClouds } from "@/lib/clouds";
-import { AUTH_URL } from "@/lib/site";
+import { AUTH_URL, DISCORD_URL } from "@/lib/site";
 import { PRIORITY_INPUTS, ROADMAP_MILESTONES } from "./roadmap-data";
 import {
   ctaDiscordStyle,
@@ -215,7 +215,7 @@ export function RoadmapPage() {
         <p style={{ fontSize: 16, lineHeight: 1.65, color: "#C7D1DB", maxWidth: "56ch", margin: "0 auto 32px" }}>
           Join the DreamBuild Discord to follow roadmap progress and submit feature requests and feedback.
         </p>
-        <a href="#" style={ctaDiscordStyle}>
+        <a href={DISCORD_URL} style={ctaDiscordStyle}>
           Join the Discord
         </a>
       </section>
