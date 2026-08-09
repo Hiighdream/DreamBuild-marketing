@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { HomePage } from "@/components/home/home-page";
 import { JsonLd } from "@/components/json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { APP_URL, OG_BASE, SITE_URL, TWITTER_IMAGES } from "@/lib/site";
+import { APP_URL, LAUNCHLIST_SCRIPT_URL, OG_BASE, SITE_URL, TWITTER_IMAGES } from "@/lib/site";
 
 const title = "DreamBuild | Everything Your Vehicle Needs, In One Garage";
 const description =
@@ -49,6 +50,7 @@ export default function Page() {
       <SiteHeader />
       <HomePage />
       <SiteFooter />
+      <Script src={LAUNCHLIST_SCRIPT_URL} strategy="afterInteractive" />
     </>
   );
 }

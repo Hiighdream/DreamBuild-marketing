@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ImageSlot } from "@/components/image-slot";
 import { AUTH_URL } from "@/lib/site";
 import { ctaPrimaryLargeStyle, ctaSecondaryLargeStyle } from "../styles";
+import { WaitlistForm } from "./waitlist-form";
 
 export function FinalCtaSection() {
   return (
@@ -44,7 +45,7 @@ export function FinalCtaSection() {
           <a href={AUTH_URL} style={ctaPrimaryLargeStyle}>
             Create Your Garage
           </a>
-          <Link href="#hero" style={ctaSecondaryLargeStyle}>
+          <Link href="#waitlist" style={ctaSecondaryLargeStyle}>
             Join the Web Launch List
           </Link>
         </div>
@@ -53,6 +54,7 @@ export function FinalCtaSection() {
             Explore the Roadmap (coming soon) →
           </Link>
         </div>
+        <WaitlistForm />
       </div>
     </section>
   );

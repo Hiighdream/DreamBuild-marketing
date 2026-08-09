@@ -124,7 +124,7 @@ export function HeroSection({ sectionRef, act, transition, reducedMotion }: Hero
           <a href={AUTH_URL} style={ctaPrimaryStyle}>
             Create Your Garage
           </a>
-          <Link href="#final" style={ctaSecondaryStyle}>
+          <Link href="#waitlist" style={ctaSecondaryStyle}>
             Join the Web Launch List
           </Link>
           <Link href="#reveal" style={ctaTertiaryStyle}>

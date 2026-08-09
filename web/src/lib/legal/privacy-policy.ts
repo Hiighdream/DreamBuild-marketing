@@ -355,9 +355,9 @@ Examples currently include Stripe and, where offered, third-party payment or buy
 
 ### Email and Communications Providers
 
-Providers that deliver transactional messages, account communications, newsletters, product announcements, or other communications.
+Providers that deliver transactional messages, account communications, newsletters, product announcements, or other communications, including services that collect an email address directly for waitlist or launch-notification signups.
 
-DreamBuild currently expects to use **Resend** for email delivery.
+DreamBuild currently expects to use **Resend** for email delivery and **GetLaunchList** for web-launch waitlist signups.
 
 ### Artificial Intelligence Providers
 
@@ -581,7 +581,7 @@ If DreamBuild expands its Services internationally, additional privacy notices, 
 
 ## 23. Third-Party Services and Links
 
-DreamBuild may contain links to or integrations with third-party websites, suppliers, shops, service providers, event organizers, payment providers, or other services.
+DreamBuild may contain links to or integrations with third-party websites, suppliers, shops, service providers, event organizers, payment providers, waitlist or signup providers, or other services.
 
 DreamBuild does not control the privacy practices of independent third parties.
 

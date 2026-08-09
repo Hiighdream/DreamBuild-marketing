@@ -12,16 +12,31 @@ type PlatformSectionProps = {
 };
 
 const nodeChipStyle: CSSProperties = {
-  padding: "8px 14px",
+  padding: "clamp(5px, 1.6cqw, 8px) clamp(8px, 2.6cqw, 14px)",
   background: "rgba(19,38,63,0.9)",
   border: "1px solid rgba(61,201,247,0.3)",
   borderRadius: 4,
-  fontSize: 12,
+  fontSize: "clamp(9px, 2.1cqw, 12px)",
   color: "#C7D1DB",
+  whiteSpace: "nowrap",
 };
 
-// Positions line up with the glowing line endpoints baked into the
-// platform-coupe underlay image — do not reposition without the image.
+// The box every NODE position and the underlay image share — this is what
+// makes the tags stay pinned to the glow line endpoints baked into
+// platform-coupe.webp at every viewport size. Sizing/centering must stay
+// identical to the image wrapper below it; `containerType` lets the chips'
+// clamp() sizes above scale off this box's own width instead of the
+// viewport. Do not reposition NODES without the image.
+const stageStyle: CSSProperties = {
+  position: "absolute",
+  left: "50%",
+  top: "8%",
+  transform: "translateX(-50%)",
+  width: "min(1600px,90vw)",
+  height: "min(700px,39vw)",
+  containerType: "inline-size",
+};
+
 const NODES = [
   { pos: [28.76, 30.81] as const, delay: [0.35, 0.65] as const, label: "Service record" },
   { pos: [71.24, 30.81] as const, delay: [0.4, 0.7] as const, label: "Maintenance reminder" },
@@ -68,29 +83,21 @@ export function PlatformSection({ sectionRef, act, transition, reducedMotion }: 
         />
       }
     >
-      <div
-        style={{
-          position: "absolute",
-          left: "50%",
-          top: "8%",
-          transform: "translateX(-50%)",
-          opacity: 0.56,
-          width: "min(1600px,90vw)",
-          height: "min(700px,39vw)",
-        }}
-      >
-        <ImageSlot
-          src="/images/home/platform-coupe.webp"
-          alt="Hero coupe returning, full clarity, open road/clearing sky, glowing connection lines converging on a central hub"
-          placeholder="Hero coupe returning, full clarity, open road/clearing sky"
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div>
-      {NODES.map((node) => (
-        <div key={node.label} style={nodeStyle(node.pos, node.delay)}>
-          <div style={nodeChipStyle}>{node.label}</div>
+      <div style={stageStyle}>
+        <div style={{ position: "absolute", inset: 0, opacity: 0.56 }}>
+          <ImageSlot
+            src="/images/home/platform-coupe.webp"
+            alt="Hero coupe returning, full clarity, open road/clearing sky, glowing connection lines converging on a central hub"
+            placeholder="Hero coupe returning, full clarity, open road/clearing sky"
+            style={{ width: "100%", height: "100%" }}
+          />
         </div>
-      ))}
+        {NODES.map((node) => (
+          <div key={node.label} style={nodeStyle(node.pos, node.delay)}>
+            <div style={nodeChipStyle}>{node.label}</div>
+          </div>
+        ))}
+      </div>
       <div style={textWrapStyle}>
         <h2 style={{ ...h2Style(16), textAlign: "center" }}>More useful because it works together.</h2>
         <p style={{ ...sectionBodyStyle, maxWidth: "54ch", margin: "0 auto" }}>
