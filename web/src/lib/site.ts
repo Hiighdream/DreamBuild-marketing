@@ -11,7 +11,7 @@ export const APP_URL = "https://app.dreambuild.app";
 export const AUTH_URL = "https://app.dreambuild.app/sign-up-login-screen";
 
 /** DreamBuild's approved GetLaunchList custom-form endpoint (web-launch waitlist). */
-export const LAUNCHLIST_FORM_URL = "https://getlaunchlist.com/s/Yv1LbF";
+export const LAUNCHLIST_FORM_URL = "https://getlaunchlist.com/s/rI8bgt";
 
 /** LaunchList's referral-tracking script for the custom-form integration —
  * forwards the page's query string onto the form action, nothing else. */
