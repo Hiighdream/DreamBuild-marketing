@@ -17,6 +17,9 @@ export const LAUNCHLIST_FORM_URL = "https://getlaunchlist.com/s/rI8bgt";
  * forwards the page's query string onto the form action, nothing else. */
 export const LAUNCHLIST_SCRIPT_URL = "https://getlaunchlist.com/js/widget-diy.js";
 
+/** DreamBuild's community Discord invite. */
+export const DISCORD_URL = "https://discord.gg/AkYXJyTmSc";
+
 export const SITE_NAME = "DreamBuild";
 
 const OG_IMAGE_ALT = "DreamBuild — your vehicle's digital garage";

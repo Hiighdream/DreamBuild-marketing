@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import { AUTH_URL } from "@/lib/site";
+import { AUTH_URL, DISCORD_URL } from "@/lib/site";
 
 const columnHeadingStyle: CSSProperties = {
   fontSize: 12,
@@ -92,7 +92,7 @@ export function SiteFooter() {
         <div>
           <div style={columnHeadingStyle}>COMMUNITY</div>
           <div style={columnListStyle}>
-            <a href="#" style={linkStyle}>Discord</a>
+            <a href={DISCORD_URL} style={linkStyle}>Discord</a>
           </div>
         </div>
 

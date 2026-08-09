@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { ImageSlot } from "@/components/image-slot";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
-import { AUTH_URL } from "@/lib/site";
+import { AUTH_URL, DISCORD_URL } from "@/lib/site";
 import { CATEGORIES } from "./contact-data";
 
 const labelStyle: CSSProperties = { display: "flex", flexDirection: "column", gap: 6, fontSize: 12, color: "#9BA9B8" };
@@ -175,7 +175,7 @@ export function ContactPage() {
           </div>
           <div>
             <div style={{ fontSize: 12, color: "#9BA9B8", marginBottom: 4 }}>COMMUNITY</div>
-            <a href="#" style={{ fontSize: 14 }}>
+            <a href={DISCORD_URL} style={{ fontSize: 14 }}>
               Discord
             </a>
           </div>
