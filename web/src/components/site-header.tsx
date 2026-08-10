@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import { AUTH_URL } from "@/lib/site";
+import { AUTH_URL, IS_PUBLIC_LAUNCH } from "@/lib/site";
+import { CreateGarageCta } from "./waitlist-ctas";
 
 export type NavKey = "roadmap" | "resources" | "about" | "contact" | "";
 
@@ -66,20 +67,21 @@ export function SiteHeader({ active = "" }: { active?: NavKey }) {
             {item.label}
           </Link>
         ))}
-        <a
-          href={AUTH_URL}
-          style={{
-            fontSize: 13,
-            fontWeight: 600,
-            letterSpacing: "0.04em",
-            color: "#9BA9B8",
-            textDecoration: "none",
-          }}
-        >
-          SIGN IN
-        </a>
-        <a
-          href={AUTH_URL}
+        {IS_PUBLIC_LAUNCH && (
+          <a
+            href={AUTH_URL}
+            style={{
+              fontSize: 13,
+              fontWeight: 600,
+              letterSpacing: "0.04em",
+              color: "#9BA9B8",
+              textDecoration: "none",
+            }}
+          >
+            SIGN IN
+          </a>
+        )}
+        <CreateGarageCta
           style={{
             fontSize: 12,
             fontWeight: 700,
@@ -92,7 +94,7 @@ export function SiteHeader({ active = "" }: { active?: NavKey }) {
           }}
         >
           CREATE YOUR GARAGE
-        </a>
+        </CreateGarageCta>
       </nav>
     </header>
   );

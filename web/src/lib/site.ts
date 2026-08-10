@@ -1,6 +1,17 @@
 /** The future production marketing-site domain — not yet live. */
 export const SITE_URL = "https://dreambuild.app";
 
+/**
+ * Single switch for the pre-launch → launch cutover. While false:
+ *  - header "Sign In" is hidden (see site-header.tsx)
+ *  - every "Create Your Garage" CTA (header/hero/final-cta, via
+ *    CreateGarageCta) redirects into the waitlist instead of AUTH_URL
+ * Flip to true at public launch to restore both at once — no per-component
+ * hunting required. Nothing else in the pre-launch waitlist UX depends on
+ * this flag (the waitlist section itself stays as-is either way).
+ */
+export const IS_PUBLIC_LAUNCH = false;
+
 /** The separate DreamBuild web application (sign-in, Bays, etc.), not part of this repo. */
 export const APP_URL = "https://app.dreambuild.app";
 

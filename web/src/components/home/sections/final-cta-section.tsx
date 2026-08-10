@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ImageSlot } from "@/components/image-slot";
-import { AUTH_URL } from "@/lib/site";
+import { CreateGarageCta, JoinWaitlistCta } from "@/components/waitlist-ctas";
 import { ctaPrimaryLargeStyle, ctaSecondaryLargeStyle } from "../styles";
 import { WaitlistForm } from "./waitlist-form";
 
@@ -42,12 +42,8 @@ export function FinalCtaSection() {
           capabilities are introduced.
         </p>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 18, flexWrap: "wrap" }}>
-          <a href={AUTH_URL} style={ctaPrimaryLargeStyle}>
-            Create Your Garage
-          </a>
-          <Link href="#waitlist" style={ctaSecondaryLargeStyle}>
-            Join the Web Launch List
-          </Link>
+          <CreateGarageCta style={ctaPrimaryLargeStyle}>Create Your Garage</CreateGarageCta>
+          <JoinWaitlistCta style={ctaSecondaryLargeStyle}>Join the Web Launch List</JoinWaitlistCta>
         </div>
         <div style={{ marginTop: 18 }}>
           <Link href="#hero" style={{ fontSize: 13, color: "#5C7188" }}>
