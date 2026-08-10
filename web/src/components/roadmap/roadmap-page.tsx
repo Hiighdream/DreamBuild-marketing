@@ -5,11 +5,12 @@ import Link from "next/link";
 import { useMemo } from "react";
 import type { CSSProperties } from "react";
 import { ImageSlot } from "@/components/image-slot";
+import { CreateGarageCta } from "@/components/waitlist-ctas";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { useScrollY } from "@/hooks/use-scroll-y";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
 import { makeClouds } from "@/lib/clouds";
-import { AUTH_URL, DISCORD_URL } from "@/lib/site";
+import { DISCORD_URL } from "@/lib/site";
 import { PRIORITY_INPUTS, ROADMAP_MILESTONES } from "./roadmap-data";
 import {
   ctaDiscordStyle,
@@ -98,9 +99,7 @@ export function RoadmapPage() {
             available, what is being expanded, and where the platform is headed.
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
-            <a href={AUTH_URL} style={ctaPrimaryStyle}>
-              Create Your Garage
-            </a>
+            <CreateGarageCta style={ctaPrimaryStyle}>Create Your Garage</CreateGarageCta>
             <Link href="/#waitlist" style={ctaSecondaryStyle}>
               Join the Web Launch List
             </Link>

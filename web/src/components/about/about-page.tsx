@@ -4,11 +4,11 @@ import Link from "next/link";
 import { useMemo } from "react";
 import type { CSSProperties } from "react";
 import { ImageSlot } from "@/components/image-slot";
+import { CreateGarageCta } from "@/components/waitlist-ctas";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { useScrollY } from "@/hooks/use-scroll-y";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
 import { makeClouds } from "@/lib/clouds";
-import { AUTH_URL } from "@/lib/site";
 import { AUDIENCES, PRINCIPLES, TEAM } from "./about-data";
 import {
   bodyPStyle,
@@ -383,9 +383,7 @@ export function AboutPage() {
           <Link href="/roadmap" style={ctaPrimaryLargeStyle}>
             Explore the Roadmap
           </Link>
-          <a href={AUTH_URL} style={ctaSecondaryLargeStyle}>
-            Create Your Garage
-          </a>
+          <CreateGarageCta style={ctaSecondaryLargeStyle}>Create Your Garage</CreateGarageCta>
         </div>
       </section>
     </div>

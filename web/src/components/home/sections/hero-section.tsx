@@ -1,9 +1,9 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { ImageSlot } from "@/components/image-slot";
+import { CreateGarageCta, JoinWaitlistCta } from "@/components/waitlist-ctas";
 import { makeClouds } from "@/lib/clouds";
 import { ease, lerp } from "@/lib/motion-math";
-import { AUTH_URL } from "@/lib/site";
 import { PinnedSection } from "../pinned-section";
 import { ctaPrimaryStyle, ctaSecondaryStyle, ctaTertiaryStyle, eyebrowStyle, h1Style, heroBodyStyle } from "../styles";
 
@@ -121,12 +121,8 @@ export function HeroSection({ sectionRef, act, transition, reducedMotion }: Hero
           discovery, automotive events, local resources, and community into one connected platform.
         </p>
         <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
-          <a href={AUTH_URL} style={ctaPrimaryStyle}>
-            Create Your Garage
-          </a>
-          <Link href="#waitlist" style={ctaSecondaryStyle}>
-            Join the Web Launch List
-          </Link>
+          <CreateGarageCta style={ctaPrimaryStyle}>Create Your Garage</CreateGarageCta>
+          <JoinWaitlistCta style={ctaSecondaryStyle}>Join the Web Launch List</JoinWaitlistCta>
           <Link href="#reveal" style={ctaTertiaryStyle}>
             See How It Works ↓
           </Link>
