@@ -1,7 +1,8 @@
 import Link from "next/link";
-import type { CSSProperties } from "react";
+import type { CSSProperties, MouseEvent } from "react";
 import { ImageSlot } from "@/components/image-slot";
 import { CreateGarageCta } from "@/components/waitlist-ctas";
+import { startAutoScroll } from "@/lib/auto-scroll";
 import { makeClouds } from "@/lib/clouds";
 import { ease, lerp } from "@/lib/motion-math";
 import { PinnedSection } from "../pinned-section";
@@ -17,6 +18,13 @@ type HeroSectionProps = {
 export function HeroSection({ sectionRef, act, transition, reducedMotion }: HeroSectionProps) {
   const heroFadeOut = ease(act, 0, 0.32);
   const cloudBuild = ease(act, 0.15, 0.85);
+
+  const handleSeeHowItWorksClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    if (reducedMotion) return;
+    event.preventDefault();
+    startAutoScroll();
+  };
 
   const vehicleStyle: CSSProperties = {
     position: "absolute",
@@ -122,7 +130,7 @@ export function HeroSection({ sectionRef, act, transition, reducedMotion }: Hero
         </p>
         <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
           <CreateGarageCta style={ctaPrimaryStyle}>Create Your Garage</CreateGarageCta>
-          <Link href="#reveal" style={ctaTertiaryStyle}>
+          <Link href="#reveal" style={ctaTertiaryStyle} onClick={handleSeeHowItWorksClick}>
             See How It Works ↓
           </Link>
         </div>
