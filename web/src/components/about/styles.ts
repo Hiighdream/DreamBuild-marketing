@@ -39,15 +39,6 @@ export const bodyPStyle: CSSProperties = {
   margin: 0,
 };
 
-export const fragChipStyle: CSSProperties = {
-  padding: "10px 14px",
-  background: "rgba(19,38,63,0.85)",
-  border: "1px solid rgba(244,246,248,0.15)",
-  borderRadius: 4,
-  fontSize: 12,
-  color: "#C7D1DB",
-};
-
 export const ctaPrimaryStyle: CSSProperties = {
   padding: "13px 24px",
   background: "#3DC9F7",

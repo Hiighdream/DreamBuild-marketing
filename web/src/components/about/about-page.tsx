@@ -17,7 +17,6 @@ import {
   ctaSecondaryLargeStyle,
   ctaSecondaryStyle,
   eyebrowStyle,
-  fragChipStyle,
   h1Style,
   h2Style,
   heroBodyStyle,
@@ -45,16 +44,6 @@ export function AboutPage() {
     opacity: entered[key] ? 1 : 0,
     transform: entered[key] ? "translateY(0)" : "translateY(36px)",
     transition: "opacity .8s ease, transform .8s ease",
-  });
-
-  // Sits clear of the text column (left:8%, max-width:600px) so the badges
-  // float over the hero background instead of on top of the headline.
-  const fragStyle = (top: string): CSSProperties => ({
-    position: "absolute",
-    top,
-    left: "54%",
-    opacity: reducedMotion ? 0.9 : Math.max(0, 0.9 - scrollY * 0.002),
-    transform: reducedMotion ? "none" : `translateY(${-scrollY * 0.15}px)`,
   });
 
   const heroParallaxStyle: CSSProperties = reducedMotion
@@ -98,15 +87,6 @@ export function AboutPage() {
               "linear-gradient(100deg, rgba(6,13,24,0.95) 0%, rgba(6,13,24,0.9) 40%, rgba(6,13,24,0.2) 62%, rgba(6,13,24,0.35) 100%)",
           }}
         />
-        <div style={fragStyle("16%")}>
-          <div style={fragChipStyle}>🧾 Receipt</div>
-        </div>
-        <div style={fragStyle("40%")}>
-          <div style={fragChipStyle}>📝 Notes</div>
-        </div>
-        <div style={fragStyle("64%")}>
-          <div style={fragChipStyle}>📍 Event</div>
-        </div>
         <div style={{ position: "relative", left: "8%", maxWidth: 600 }}>
           <div style={eyebrowStyle}>WHY DREAMBUILD EXISTS</div>
           <h1 style={h1Style}>Vehicle ownership should not feel this disconnected.</h1>
