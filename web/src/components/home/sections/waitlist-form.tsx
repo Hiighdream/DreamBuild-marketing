@@ -47,10 +47,10 @@ const joinButtonStyle = (disabled: boolean): CSSProperties => ({
  * navigates to LaunchList's own hosted confirmation. The "submitting" state
  * here is just pre-navigation feedback, not a fabricated success message.
  *
- * Pre-launch, the form starts collapsed behind a "Join the Web Launch List"
- * trigger — see waitlist-reveal.ts for how CreateGarageCta/JoinWaitlistCta
- * (header, hero, final-cta) and a same-page `#waitlist` hash both ask this
- * component to expand, scroll into view, and focus First Name.
+ * Pre-launch, the form starts fully hidden — see waitlist-reveal.ts for how
+ * CreateGarageCta (header, hero, final-cta, roadmap, about, resources,
+ * article) and a same-page `#waitlist` hash both ask this component to
+ * expand, scroll into view, and focus First Name.
  */
 export function WaitlistForm() {
   const reducedMotion = useReducedMotion();
@@ -93,32 +93,7 @@ export function WaitlistForm() {
   };
 
   return (
-    <div
-      id={WAITLIST_ANCHOR_ID}
-      ref={containerRef}
-      style={{
-        marginTop: 44,
-        paddingTop: 36,
-        borderTop: "1px solid rgba(244,246,248,0.15)",
-        textAlign: "center",
-      }}
-    >
-      <p style={{ fontSize: 14, color: "#C7D1DB", margin: "0 0 18px" }}>
-        Join the DreamBuild web launch list for launch updates and product announcements.
-      </p>
-
-      {!expanded && (
-        <button
-          type="button"
-          onClick={reveal}
-          aria-expanded={false}
-          aria-controls={FIELDS_ID}
-          style={joinButtonStyle(false)}
-        >
-          Join the Web Launch List
-        </button>
-      )}
-
+    <div id={WAITLIST_ANCHOR_ID} ref={containerRef} style={{ textAlign: "center" }}>
       <div
         id={FIELDS_ID}
         aria-hidden={!expanded}
@@ -134,58 +109,63 @@ export function WaitlistForm() {
         }}
       >
         <div style={{ overflow: "hidden", minHeight: 0 }}>
-          <form
-            action={LAUNCHLIST_FORM_URL}
-            method="POST"
-            className="launchlist-form"
-            onSubmit={handleSubmit}
-            style={{
-              display: "flex",
-              gap: 12,
-              flexWrap: "wrap",
-              justifyContent: "center",
-              alignItems: "flex-end",
-              paddingTop: 24,
-            }}
-          >
-            <label htmlFor="waitlist-first-name" style={labelStyle}>
-              First Name
-              <input
-                id="waitlist-first-name"
-                name="name"
-                type="text"
-                required
-                placeholder="First name"
-                ref={firstNameRef}
-                style={inputStyle}
-              />
-            </label>
-            <label htmlFor="waitlist-email" style={labelStyle}>
-              Email address
-              <input
-                id="waitlist-email"
-                name="email"
-                type="email"
-                required
-                placeholder="you@example.com"
-                style={inputStyle}
-              />
-            </label>
-            <button type="submit" disabled={submitting} style={joinButtonStyle(submitting)}>
-              {submitting ? "Joining…" : "Join the Web Launch List"}
-            </button>
-          </form>
-          <p role="status" aria-live="polite" style={{ minHeight: 16, margin: "10px 0 0", fontSize: 12, color: "#3DC9F7" }}>
-            {submitting ? "Submitting…" : ""}
-          </p>
-          <p style={{ fontSize: 12, color: "#5C7188", maxWidth: 480, margin: "10px auto 0", lineHeight: 1.6 }}>
-            By joining, you agree to receive DreamBuild launch and product emails. You can unsubscribe at
-            any time. See our{" "}
-            <Link href="/privacy" style={{ fontSize: 12 }}>
-              Privacy Policy
-            </Link>
-            .
-          </p>
+          <div style={{ marginTop: 44, paddingTop: 36, borderTop: "1px solid rgba(244,246,248,0.15)" }}>
+            <p style={{ fontSize: 14, color: "#C7D1DB", margin: "0 0 18px" }}>
+              Join the DreamBuild web launch list for launch updates and product announcements.
+            </p>
+            <form
+              action={LAUNCHLIST_FORM_URL}
+              method="POST"
+              className="launchlist-form"
+              onSubmit={handleSubmit}
+              style={{
+                display: "flex",
+                gap: 12,
+                flexWrap: "wrap",
+                justifyContent: "center",
+                alignItems: "flex-end",
+                paddingTop: 24,
+              }}
+            >
+              <label htmlFor="waitlist-first-name" style={labelStyle}>
+                First Name
+                <input
+                  id="waitlist-first-name"
+                  name="name"
+                  type="text"
+                  required
+                  placeholder="First name"
+                  ref={firstNameRef}
+                  style={inputStyle}
+                />
+              </label>
+              <label htmlFor="waitlist-email" style={labelStyle}>
+                Email address
+                <input
+                  id="waitlist-email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="you@example.com"
+                  style={inputStyle}
+                />
+              </label>
+              <button type="submit" disabled={submitting} style={joinButtonStyle(submitting)}>
+                {submitting ? "Joining…" : "Join the Web Launch List"}
+              </button>
+            </form>
+            <p role="status" aria-live="polite" style={{ minHeight: 16, margin: "10px 0 0", fontSize: 12, color: "#3DC9F7" }}>
+              {submitting ? "Submitting…" : ""}
+            </p>
+            <p style={{ fontSize: 12, color: "#5C7188", maxWidth: 480, margin: "10px auto 0", lineHeight: 1.6 }}>
+              By joining, you agree to receive DreamBuild launch and product emails. You can unsubscribe at
+              any time. See our{" "}
+              <Link href="/privacy" style={{ fontSize: 12 }}>
+                Privacy Policy
+              </Link>
+              .
+            </p>
+          </div>
         </div>
       </div>
     </div>
