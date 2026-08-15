@@ -1,11 +1,11 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { ImageSlot } from "@/components/image-slot";
-import { CreateGarageCta, JoinWaitlistCta } from "@/components/waitlist-ctas";
+import { CreateGarageCta } from "@/components/waitlist-ctas";
 import { makeClouds } from "@/lib/clouds";
 import { ease, lerp } from "@/lib/motion-math";
 import { PinnedSection } from "../pinned-section";
-import { ctaPrimaryStyle, ctaSecondaryStyle, ctaTertiaryStyle, eyebrowStyle, h1Style, heroBodyStyle } from "../styles";
+import { ctaPrimaryStyle, ctaTertiaryStyle, eyebrowStyle, h1Style, heroBodyStyle } from "../styles";
 
 type HeroSectionProps = {
   sectionRef: (el: HTMLElement | null) => void;
@@ -122,7 +122,6 @@ export function HeroSection({ sectionRef, act, transition, reducedMotion }: Hero
         </p>
         <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
           <CreateGarageCta style={ctaPrimaryStyle}>Create Your Garage</CreateGarageCta>
-          <JoinWaitlistCta style={ctaSecondaryStyle}>Join the Web Launch List</JoinWaitlistCta>
           <Link href="#reveal" style={ctaTertiaryStyle}>
             See How It Works ↓
           </Link>

@@ -27,17 +27,3 @@ export function CreateGarageCta({ style, children }: CtaProps) {
     </Link>
   );
 }
-
-/**
- * The "Join the Web Launch List" CTA used outside the waitlist form itself
- * (hero, final-cta). Always points at the waitlist — unlike CreateGarageCta
- * this isn't gated by IS_PUBLIC_LAUNCH, since the waitlist's post-launch fate
- * (kept, repurposed, or removed) is a separate decision.
- */
-export function JoinWaitlistCta({ style, children }: CtaProps) {
-  return (
-    <Link href={`/#${WAITLIST_ANCHOR_ID}`} style={style} onClick={goToWaitlist}>
-      {children}
-    </Link>
-  );
-}

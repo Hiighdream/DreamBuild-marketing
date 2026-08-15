@@ -15,7 +15,6 @@ import { PRIORITY_INPUTS, ROADMAP_MILESTONES } from "./roadmap-data";
 import {
   ctaDiscordStyle,
   ctaPrimaryStyle,
-  ctaSecondaryStyle,
   ctaTertiaryStyle,
   eyebrowStyle,
   h1Style,
@@ -100,9 +99,6 @@ export function RoadmapPage() {
           </p>
           <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
             <CreateGarageCta style={ctaPrimaryStyle}>Create Your Garage</CreateGarageCta>
-            <Link href="/#waitlist" style={ctaSecondaryStyle}>
-              Join the Web Launch List
-            </Link>
             <Link href="#foundation" style={ctaTertiaryStyle}>
               Explore Current Features ↓
             </Link>
