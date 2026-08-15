@@ -49,9 +49,7 @@ export function RoadmapPage() {
   });
 
   const parallaxRoadStyle: CSSProperties = reducedMotion ? {} : { transform: `translateY(${-scrollY * 0.06}px)` };
-  const parallaxVehicleStyle: CSSProperties = {
-    transform: `translateX(-50%) ${reducedMotion ? "" : `translateY(${-scrollY * 0.1}px)`}`,
-  };
+  const parallaxVehicleStyle: CSSProperties = reducedMotion ? {} : { transform: `translateY(${-scrollY * 0.1}px)` };
 
   return (
     <div style={{ position: "relative", background: "#0A1A2F" }}>
@@ -64,6 +62,15 @@ export function RoadmapPage() {
             background: "radial-gradient(ellipse at 50% 30%, #13263F 0%, #0A1A2F 55%, #060D18 100%)",
           }}
         />
+        <div style={{ position: "absolute", inset: 0, ...parallaxVehicleStyle }}>
+          <ImageSlot
+            src="/images/roadmap/hero-open-road.png"
+            alt=""
+            placeholder="Vehicle receding down an open route, low angle"
+            style={{ width: "100%", height: "100%" }}
+            priority
+          />
+        </div>
         <div
           style={{
             position: "absolute",
@@ -77,15 +84,14 @@ export function RoadmapPage() {
             ...parallaxRoadStyle,
           }}
         />
-        <div style={{ position: "absolute", left: "50%", bottom: "8%", opacity: 0.35, ...parallaxVehicleStyle }}>
-          <ImageSlot
-            src="/images/roadmap/hero-open-road.png"
-            alt=""
-            placeholder="Vehicle receding down an open route, low angle"
-            style={{ width: "min(700px,60vw)", height: "34vh" }}
-            priority
-          />
-        </div>
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(100deg, rgba(6,13,24,0.95) 0%, rgba(6,13,24,0.9) 40%, rgba(6,13,24,0.2) 62%, rgba(6,13,24,0.35) 100%)",
+          }}
+        />
         {heroClouds.map((c) => (
           <div key={c.id} style={c.style} />
         ))}

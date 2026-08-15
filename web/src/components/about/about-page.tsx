@@ -47,9 +47,8 @@ export function AboutPage() {
     transition: "opacity .8s ease, transform .8s ease",
   });
 
-  // Sits in the gap between the text column (left:8%, max-width:600px) and
-  // the hero image (right:6%) so the badges float clear of both instead of
-  // sitting on top of the headline.
+  // Sits clear of the text column (left:8%, max-width:600px) so the badges
+  // float over the hero background instead of on top of the headline.
   const fragStyle = (top: string): CSSProperties => ({
     position: "absolute",
     top,
@@ -82,24 +81,23 @@ export function AboutPage() {
               "radial-gradient(ellipse at 60% 40%, #13263F 0%, #0A1A2F 55%, #060D18 100%)",
           }}
         />
-        <div
-          style={{
-            position: "absolute",
-            right: "6%",
-            bottom: 0,
-            top: "14%",
-            opacity: 0.3,
-            ...heroParallaxStyle,
-          }}
-        >
+        <div style={{ position: "absolute", inset: 0, ...heroParallaxStyle }}>
           <ImageSlot
             src="/images/about/hero-garage.png"
             alt="Vehicle in a garage/workshop, surrounded by ownership artifacts"
             placeholder="Vehicle in a garage/workshop, surrounded by ownership artifacts"
-            style={{ width: 399, height: 311 }}
+            style={{ width: "100%", height: "100%" }}
             priority
           />
         </div>
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background:
+              "linear-gradient(100deg, rgba(6,13,24,0.95) 0%, rgba(6,13,24,0.9) 40%, rgba(6,13,24,0.2) 62%, rgba(6,13,24,0.35) 100%)",
+          }}
+        />
         <div style={fragStyle("16%")}>
           <div style={fragChipStyle}>🧾 Receipt</div>
         </div>
