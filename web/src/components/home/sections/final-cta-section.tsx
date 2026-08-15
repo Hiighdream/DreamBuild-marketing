@@ -45,8 +45,8 @@ export function FinalCtaSection() {
           <CreateGarageCta style={ctaPrimaryLargeStyle}>Create Your Garage</CreateGarageCta>
         </div>
         <div style={{ marginTop: 18 }}>
-          <Link href="#hero" style={{ fontSize: 13, color: "#5C7188" }}>
-            Explore the Roadmap (coming soon) →
+          <Link href="/roadmap" style={{ fontSize: 13, color: "#5C7188" }}>
+            Explore the Roadmap →
           </Link>
         </div>
         <WaitlistForm />
