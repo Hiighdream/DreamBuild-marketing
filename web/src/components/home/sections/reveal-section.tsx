@@ -105,11 +105,8 @@ export function RevealSection({ sectionRef, act, transition, reducedMotion }: Re
             boxShadow: "0 30px 80px rgba(0,0,0,0.5)",
           }}
         >
-          <div style={{ fontSize: 11, letterSpacing: "0.1em", color: "#3DC9F7", fontWeight: 700, marginBottom: 10 }}>
-            THE BAY
-          </div>
           <div style={{ fontFamily: "var(--font-display)", fontSize: 20, fontWeight: 700, marginBottom: 16 }}>
-            2022 Sport Sedan · Bay 01
+            Daily Driver · Bay 01
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: 10 }}>
             {FEATURE_LABELS.map((label) => (
