@@ -121,9 +121,9 @@ export function PartsSection({ sectionRef, act, transition, reducedMotion }: Par
             padding: 16,
           }}
         >
-          <div style={{ fontSize: 11, color: "#3DC9F7", fontWeight: 700, marginBottom: 8 }}>MATCHED TO BAY 01</div>
+          <div style={{ fontSize: 11, color: "#3DC9F7", fontWeight: 700, marginBottom: 8 }}>MATCHED TO YOUR GARAGE</div>
           <div style={{ fontWeight: 700, marginBottom: 4 }}>Cabin Air Filter</div>
-          <div style={{ fontSize: 12, color: "#9BA9B8" }}>Fits 2022 Sport Sedan</div>
+          <div style={{ fontSize: 12, color: "#9BA9B8" }}>Fits Daily Driver · Bay 01</div>
         </div>
       </div>
       <div style={textWrapStyle}>
