@@ -48,7 +48,6 @@ export function RoadmapPage() {
     transition: "opacity .8s ease, transform .8s ease",
   });
 
-  const parallaxRoadStyle: CSSProperties = reducedMotion ? {} : { transform: `translateY(${-scrollY * 0.06}px)` };
   const parallaxVehicleStyle: CSSProperties = reducedMotion ? {} : { transform: `translateY(${-scrollY * 0.1}px)` };
 
   return (
@@ -71,19 +70,6 @@ export function RoadmapPage() {
             priority
           />
         </div>
-        <div
-          style={{
-            position: "absolute",
-            left: 0,
-            right: 0,
-            bottom: 0,
-            height: "55%",
-            opacity: 0.5,
-            clipPath: "polygon(44% 100%, 56% 100%, 51.5% 0%, 48.5% 0%)",
-            background: "linear-gradient(180deg, #1a2c42 0%, #0d1c2e 100%)",
-            ...parallaxRoadStyle,
-          }}
-        />
         <div
           style={{
             position: "absolute",
