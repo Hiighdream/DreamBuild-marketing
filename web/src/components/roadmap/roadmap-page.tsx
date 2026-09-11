@@ -29,7 +29,7 @@ import {
 function statusColors(label: string): [string, string, string] {
   if (label === "AVAILABLE NOW") return ["#3DDC84", "rgba(61,220,132,0.12)", "rgba(61,220,132,0.4)"];
   if (label === "FUTURE") return ["#9BA9B8", "rgba(155,169,184,0.12)", "rgba(155,169,184,0.35)"];
-  return ["#3DC9F7", "rgba(61,201,247,0.12)", "rgba(61,201,247,0.4)"]; // "8/2026", "NEXT"
+  return ["#3DC9F7", "rgba(61,201,247,0.12)", "rgba(61,201,247,0.4)"]; // "10/2026", "NEXT"
 }
 
 export function RoadmapPage() {
@@ -104,7 +104,7 @@ export function RoadmapPage() {
           <div style={{ overflowX: "auto", borderRadius: 8 }}>
             <Image
               src="/images/roadmap/product-roadmap-overview.png"
-              alt="DreamBuild product roadmap graphic showing four milestones along a road: In the Garage (Available Now), Ready for Launch – Web (8/2026), The Next Mile (Next), and Beyond the Horizon (Future)."
+              alt="DreamBuild product roadmap graphic showing four milestones along a road: In the Garage (Available Now), Ready for Launch – Web (10/2026), The Next Mile (Next), and Beyond the Horizon (Future)."
               width={2000}
               height={1200}
               style={{ width: "100%", height: "auto", minWidth: 1100, display: "block", borderRadius: 8 }}
