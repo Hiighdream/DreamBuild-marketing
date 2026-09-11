@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { ResourcesPage } from "@/components/resources/resources-page";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { OG_BASE, SITE_URL, TWITTER_IMAGES } from "@/lib/site";
+import { OG_BASE, SHOW_RESOURCES, SITE_URL, TWITTER_IMAGES } from "@/lib/site";
 
 const title = "Resources: Vehicle Maintenance & Ownership Guides";
 const description =
@@ -27,6 +28,10 @@ const breadcrumbJsonLd = {
 };
 
 export default function Page() {
+  // Resources is hidden pre-visibility — the page component below is left
+  // intact so flipping SHOW_RESOURCES restores it as-is.
+  if (!SHOW_RESOURCES) notFound();
+
   return (
     <>
       <JsonLd data={breadcrumbJsonLd} />

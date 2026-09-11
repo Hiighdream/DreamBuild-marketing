@@ -1,13 +1,15 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
-import { AUTH_URL, IS_PUBLIC_LAUNCH } from "@/lib/site";
+import { AUTH_URL, IS_PUBLIC_LAUNCH, SHOW_RESOURCES } from "@/lib/site";
 import { CreateGarageCta } from "./waitlist-ctas";
 
 export type NavKey = "roadmap" | "resources" | "about" | "contact" | "";
 
 const NAV_ITEMS: { key: NavKey; label: string; href: string }[] = [
   { key: "roadmap", label: "ROADMAP", href: "/roadmap" },
-  { key: "resources", label: "RESOURCES", href: "/resources" },
+  ...(SHOW_RESOURCES
+    ? [{ key: "resources" as const, label: "RESOURCES", href: "/resources" }]
+    : []),
   { key: "about", label: "ABOUT", href: "/about" },
   { key: "contact", label: "CONTACT", href: "/contact" },
 ];
