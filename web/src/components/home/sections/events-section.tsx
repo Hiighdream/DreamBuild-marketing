@@ -61,9 +61,9 @@ export function EventsSection({ sectionRef, act, transition, reducedMotion }: Ev
           />
           <div style={{ position: "absolute", right: "2%", bottom: 0, top: "20%", opacity: 0.42 }}>
             <ImageSlot
-              src="/images/home/events-suv.webp"
-              alt="SUV parked at overlook / meetup scene"
-              placeholder="SUV parked at overlook / meetup scene"
+              src="/images/home/events-map.webp"
+              alt="DreamBuild map view of nearby automotive events and local shops, with color-coded repair, tire, car wash, and parts markers and category filters"
+              placeholder="Map of nearby automotive events and shops with category markers"
               style={{ width: "54vw", height: "66vh" }}
             />
           </div>
