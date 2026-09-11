@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { CSSProperties } from "react";
 import { ImageSlot } from "@/components/image-slot";
 import { useSectionReveal } from "@/hooks/use-section-reveal";
-import { AUTH_URL, DISCORD_URL } from "@/lib/site";
+import { AUTH_URL, DISCORD_URL, SHOW_RESOURCES } from "@/lib/site";
 import { CATEGORIES } from "./contact-data";
 
 const labelStyle: CSSProperties = { display: "flex", flexDirection: "column", gap: 6, fontSize: 12, color: "#9BA9B8" };
@@ -185,7 +185,7 @@ export function ContactPage() {
       {/* FAQ SHORTCUT */}
       <section style={{ padding: "20px 8vw 100px", textAlign: "center" }}>
         <div style={{ display: "flex", justifyContent: "center", gap: 24, flexWrap: "wrap", fontSize: 13, color: "#9BA9B8" }}>
-          <Link href="/resources">Resources</Link>
+          {SHOW_RESOURCES && <Link href="/resources">Resources</Link>}
           <Link href="/roadmap">Roadmap</Link>
           <Link href="/privacy">Privacy</Link>
           <Link href="/terms">Terms</Link>
@@ -194,32 +194,34 @@ export function ContactPage() {
       </section>
 
       {/* FINAL */}
-      <section style={{ position: "relative", padding: "100px 8vw", background: "#060D18", textAlign: "center" }}>
-        <h2
-          style={{
-            fontFamily: "var(--font-display)",
-            fontWeight: 700,
-            fontSize: "clamp(26px, 3.2vw, 38px)",
-            margin: "0 0 22px",
-          }}
-        >
-          Looking for an answer before reaching out?
-        </h2>
-        <Link
-          href="/resources"
-          style={{
-            padding: "15px 28px",
-            background: "#3DC9F7",
-            color: "#0A1A2F",
-            fontWeight: 700,
-            fontSize: 14,
-            borderRadius: 4,
-            textDecoration: "none",
-          }}
-        >
-          Explore DreamBuild Resources
-        </Link>
-      </section>
+      {SHOW_RESOURCES && (
+        <section style={{ position: "relative", padding: "100px 8vw", background: "#060D18", textAlign: "center" }}>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontWeight: 700,
+              fontSize: "clamp(26px, 3.2vw, 38px)",
+              margin: "0 0 22px",
+            }}
+          >
+            Looking for an answer before reaching out?
+          </h2>
+          <Link
+            href="/resources"
+            style={{
+              padding: "15px 28px",
+              background: "#3DC9F7",
+              color: "#0A1A2F",
+              fontWeight: 700,
+              fontSize: 14,
+              borderRadius: 4,
+              textDecoration: "none",
+            }}
+          >
+            Explore DreamBuild Resources
+          </Link>
+        </section>
+      )}
     </div>
   );
 }

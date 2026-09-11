@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import { CreateGarageCta } from "@/components/waitlist-ctas";
-import { AUTH_URL, DISCORD_URL, IS_PUBLIC_LAUNCH } from "@/lib/site";
+import { AUTH_URL, DISCORD_URL, IS_PUBLIC_LAUNCH, SHOW_RESOURCES } from "@/lib/site";
 
 const columnHeadingStyle: CSSProperties = {
   fontSize: 12,
@@ -78,7 +78,9 @@ export function SiteFooter() {
           <div style={columnListStyle}>
             <Link href="/about" style={linkStyle}>About</Link>
             <Link href="/contact" style={linkStyle}>Contact</Link>
-            <Link href="/resources" style={linkStyle}>Resources</Link>
+            {SHOW_RESOURCES && (
+              <Link href="/resources" style={linkStyle}>Resources</Link>
+            )}
           </div>
         </div>
 

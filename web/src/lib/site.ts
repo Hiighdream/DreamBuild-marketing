@@ -12,6 +12,17 @@ export const SITE_URL = "https://dreambuild.app";
  */
 export const IS_PUBLIC_LAUNCH = false;
 
+/**
+ * Single switch for whether the Resources section is publicly visible. While false:
+ *  - the "Resources" nav link (site-header), footer link (site-footer), and the
+ *    Contact page's Resources links / "Explore DreamBuild Resources" section are hidden
+ *  - /resources and /resources/[slug] return 404 (see those route files)
+ *  - both are dropped from sitemap.xml
+ * The page components, article content, and resources data are untouched — flip to
+ * true to restore the whole section at once, no per-component hunting required.
+ */
+export const SHOW_RESOURCES = false;
+
 /** The separate DreamBuild web application (sign-in, Bays, etc.), not part of this repo. */
 export const APP_URL = "https://app.dreambuild.app";
 

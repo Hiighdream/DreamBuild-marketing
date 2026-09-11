@@ -5,9 +5,10 @@ import { JsonLd } from "@/components/json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getAllArticleSlugs, getArticle } from "@/lib/articles";
-import { OG_BASE, SITE_URL, TWITTER_IMAGES } from "@/lib/site";
+import { OG_BASE, SHOW_RESOURCES, SITE_URL, TWITTER_IMAGES } from "@/lib/site";
 
 export function generateStaticParams() {
+  if (!SHOW_RESOURCES) return [];
   return getAllArticleSlugs().map((slug) => ({ slug }));
 }
 
@@ -16,6 +17,8 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
+  if (!SHOW_RESOURCES) return {};
+
   const { slug } = await params;
   const article = getArticle(slug);
   if (!article) return {};
@@ -37,6 +40,10 @@ export async function generateMetadata({
 }
 
 export default async function Page({ params }: { params: Promise<{ slug: string }> }) {
+  // Resources is hidden pre-visibility — ArticlePage and article content below
+  // are left intact so flipping SHOW_RESOURCES restores them as-is.
+  if (!SHOW_RESOURCES) notFound();
+
   const { slug } = await params;
   const article = getArticle(slug);
   if (!article) notFound();
