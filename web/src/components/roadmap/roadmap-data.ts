@@ -49,11 +49,10 @@ export const ROADMAP_MILESTONES: RoadmapMilestone[] = [
     items: [
       "Parts Marketplace Supplier Partnerships",
       "Compatible Part Discovery",
-      "Deeper Leroy Assistance",
       "Recalls + Vehicle Notes",
       "Mobile Experience",
       "Leroy Assistant v1",
-      "Expanded 3D Vehicle Viewerr",
+      "Expanded 3D Vehicle Viewer",
       "Maintenance Guides",
     ],
   },
@@ -67,6 +66,7 @@ export const ROADMAP_MILESTONES: RoadmapMilestone[] = [
       "Vehicle Analytics",
       "Smarter Garage Intelligence",
       "Expanded Automotive Ecosystem",
+      "Deeper Leroy Assistance",
     ],
   },
 ];
