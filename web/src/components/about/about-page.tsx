@@ -295,14 +295,14 @@ export function AboutPage() {
               >
                 <ImageSlot
                   src={t.src}
-                  shape="circle"
+                  shape="rect"
                   alt={`${t.name}, ${t.role}`}
                   placeholder="Photo — pending"
-                  style={{ width: 88, height: 88, margin: "0 auto 14px" }}
+                  style={{ width: 148, height: 148, margin: "0 auto 14px" }}
                 />
-                <div style={{ fontSize: 14, fontWeight: 600, color: "#9BA9B8" }}>{t.name}</div>
-                <div style={{ fontSize: 12, color: "#5C7188", margin: "4px 0 10px" }}>{t.role}</div>
-                <div style={{ fontSize: 12, color: "#5C7188", lineHeight: 1.5 }}>
+                <div style={{ fontSize: 24, fontWeight: 600, color: "#9BA9B8" }}>{t.name}</div>
+                <div style={{ fontSize: 20, color: "#5C7188", margin: "4px 0 10px" }}>{t.role}</div>
+                <div style={{ fontSize: 20, color: "#5C7188", lineHeight: 1.5 }}>
                   Bio — pending verified content
                 </div>
               </div>
