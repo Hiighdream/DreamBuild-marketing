@@ -288,7 +288,7 @@ export function AboutPage() {
                   style={{
                     padding: 20,
                     background: "rgba(19,38,63,0.6)",
-                    border: "1px dashed rgba(155,169,184,0.35)",
+                    border: "1px solid rgba(155,169,184,0.35)",
                     borderRadius: 8,
                   }}
                 >
@@ -305,14 +305,26 @@ export function AboutPage() {
                 <div
                   style={{
                     padding: 20,
+                    textAlign: "left",
                     background: "rgba(19,38,63,0.6)",
-                    border: "1px dashed rgba(155,169,184,0.35)",
+                    border: t.bio
+                      ? "1px solid rgba(155,169,184,0.35)"
+                      : "1px dashed rgba(155,169,184,0.35)",
                     borderRadius: 8,
                   }}
                 >
-                  <div style={{ fontSize: 20, color: "#5C7188", lineHeight: 1.5 }}>
-                    Bio — pending verified content
-                  </div>
+                  {t.bio ? (
+                    <>
+                      <div style={{ fontSize: 15, fontWeight: 600, color: "#F4F6F8", marginBottom: 8 }}>
+                        {t.bioTitle}
+                      </div>
+                      <div style={{ fontSize: 14, color: "#9BA9B8", lineHeight: 1.6 }}>{t.bio}</div>
+                    </>
+                  ) : (
+                    <div style={{ fontSize: 20, color: "#5C7188", lineHeight: 1.5, textAlign: "center" }}>
+                      Bio — pending verified content
+                    </div>
+                  )}
                 </div>
               </div>
             ))}

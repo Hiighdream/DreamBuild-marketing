@@ -60,7 +60,27 @@ export const AUDIENCES: { id: string; label: string; placeholder: string; src?: 
 ];
 
 export const TEAM = [
-  { id: "ab-team-1", name: "Brandon C.", role: "Founder", src: "/images/about/team-brandon.jpg" },
-  { id: "ab-team-2", name: "Arcenia T.", role: "Co-Founder", src: "/images/about/team-arcenia.jpg" },
-  { id: "ab-team-3", name: "Skyler C.", role: "Co-Founder", src: "/images/about/team-skyler.jpg" },
+  {
+    id: "ab-team-1",
+    name: "Brandon C.",
+    role: "Founder",
+    src: "/images/about/team-brandon.jpg",
+    bioTitle: "Automotive Experience & Product Vision",
+    bio: "Automotive professional with years of hands-on repair, diagnostics, and management experience. Brandon founded DreamBuild to bring real-world automotive knowledge into a platform built for enthusiasts, DIYers, and everyday vehicle owners.",
+  },
+  {
+    id: "ab-team-2",
+    name: "Arcenia T.",
+    role: "Co-Founder",
+    src: "/images/about/team-arcenia.jpg",
+    bioTitle: "Parts, Operations & Finance",
+    bio: "Brings years of automotive parts sales and organization experience alongside more than a decade of accounting knowledge. Arcenia helps guide DreamBuild's financial operations, organization, and business growth.",
+  },
+  {
+    id: "ab-team-3",
+    name: "Skyler C.",
+    role: "Co-Founder",
+    src: "/images/about/team-skyler.jpg",
+    // Bio pending — do not add yet.
+  },
 ];
