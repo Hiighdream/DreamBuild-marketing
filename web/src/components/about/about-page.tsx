@@ -280,30 +280,39 @@ export function AboutPage() {
         style={{ position: "relative", padding: "120px 8vw", background: "#0A1A2F" }}
       >
         <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center", ...reveal("team") }}>
-          <h2 style={{ ...h2Style, marginBottom: 40 }}>Who&rsquo;s building DreamBuild</h2>
+          <h2 style={{ ...h2Style, marginBottom: 40 }}>Meet the team behind DreamBuild</h2>
           <div style={{ display: "flex", justifyContent: "center", gap: 24, flexWrap: "wrap" }}>
             {TEAM.map((t) => (
-              <div
-                key={t.id}
-                style={{
-                  width: 220,
-                  padding: 20,
-                  background: "rgba(19,38,63,0.6)",
-                  border: "1px dashed rgba(155,169,184,0.35)",
-                  borderRadius: 8,
-                }}
-              >
-                <ImageSlot
-                  src={t.src}
-                  shape="rect"
-                  alt={`${t.name}, ${t.role}`}
-                  placeholder="Photo — pending"
-                  style={{ width: 148, height: 148, margin: "0 auto 14px" }}
-                />
-                <div style={{ fontSize: 24, fontWeight: 600, color: "#9BA9B8" }}>{t.name}</div>
-                <div style={{ fontSize: 20, color: "#5C7188", margin: "4px 0 10px" }}>{t.role}</div>
-                <div style={{ fontSize: 20, color: "#5C7188", lineHeight: 1.5 }}>
-                  Bio — pending verified content
+              <div key={t.id} style={{ width: 220, display: "flex", flexDirection: "column", gap: 16 }}>
+                <div
+                  style={{
+                    padding: 20,
+                    background: "rgba(19,38,63,0.6)",
+                    border: "1px dashed rgba(155,169,184,0.35)",
+                    borderRadius: 8,
+                  }}
+                >
+                  <ImageSlot
+                    src={t.src}
+                    shape="rect"
+                    alt={`${t.name}, ${t.role}`}
+                    placeholder="Photo — pending"
+                    style={{ width: 148, height: 148, margin: "0 auto 14px" }}
+                  />
+                  <div style={{ fontSize: 24, fontWeight: 600, color: "#9BA9B8" }}>{t.name}</div>
+                  <div style={{ fontSize: 20, color: "#5C7188" }}>{t.role}</div>
+                </div>
+                <div
+                  style={{
+                    padding: 20,
+                    background: "rgba(19,38,63,0.6)",
+                    border: "1px dashed rgba(155,169,184,0.35)",
+                    borderRadius: 8,
+                  }}
+                >
+                  <div style={{ fontSize: 20, color: "#5C7188", lineHeight: 1.5 }}>
+                    Bio — pending verified content
+                  </div>
                 </div>
               </div>
             ))}

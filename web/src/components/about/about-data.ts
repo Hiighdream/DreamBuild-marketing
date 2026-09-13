@@ -62,5 +62,5 @@ export const AUDIENCES: { id: string; label: string; placeholder: string; src?: 
 export const TEAM = [
   { id: "ab-team-1", name: "Brandon C.", role: "Founder", src: "/images/about/team-brandon.jpg" },
   { id: "ab-team-2", name: "Arcenia T.", role: "Co-Founder", src: "/images/about/team-arcenia.jpg" },
-  { id: "ab-team-3", name: "Skyler C.", role: "Technical Partner", src: "/images/about/team-skyler.jpg" },
+  { id: "ab-team-3", name: "Skyler C.", role: "Co-Founder", src: "/images/about/team-skyler.jpg" },
 ];
