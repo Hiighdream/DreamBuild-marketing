@@ -65,7 +65,7 @@ export const TEAM = [
     name: "Brandon C.",
     role: "Founder",
     src: "/images/about/team-brandon.jpg",
-    bioTitle: "Automotive Experience & Product Vision",
+    bioTitle: "Automotive Experience, Operations & Product Vision",
     bio: "Automotive professional with years of hands-on repair, diagnostics, and management experience. Brandon founded DreamBuild to bring real-world automotive knowledge into a platform built for enthusiasts, DIYers, and everyday vehicle owners.",
   },
   {
@@ -73,7 +73,7 @@ export const TEAM = [
     name: "Arcenia T.",
     role: "Co-Founder",
     src: "/images/about/team-arcenia.jpg",
-    bioTitle: "Parts, Operations & Finance",
+    bioTitle: "Relations & Finance",
     bio: "Brings years of automotive parts sales and organization experience alongside more than a decade of accounting knowledge. Arcenia helps guide DreamBuild's financial operations, organization, and business growth.",
   },
   {
