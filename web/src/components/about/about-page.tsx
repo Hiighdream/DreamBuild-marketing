@@ -294,8 +294,9 @@ export function AboutPage() {
                 }}
               >
                 <ImageSlot
+                  src={t.src}
                   shape="circle"
-                  alt={`${t.name} — photo pending`}
+                  alt={`${t.name}, ${t.role}`}
                   placeholder="Photo — pending"
                   style={{ width: 88, height: 88, margin: "0 auto 14px" }}
                 />
