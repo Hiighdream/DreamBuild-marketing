@@ -81,6 +81,7 @@ export const TEAM = [
     name: "Skyler C.",
     role: "Co-Founder",
     src: "/images/about/team-skyler.jpg",
-    // Bio pending — do not add yet.
+    bioTitle: "Technology, Security & Engineering",
+    bio: "Technical professional with experience in IT, cybersecurity, systems operations, and emerging technologies. Skyler combines hands-on technical experience with a passion for building new technology, leading the development, security, and technical direction behind DreamBuild.",
   },
 ];
