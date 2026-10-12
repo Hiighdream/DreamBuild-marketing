@@ -15,7 +15,9 @@ type HeroSectionProps = {
   reducedMotion: boolean;
 };
 
-export function HeroSection({ sectionRef, act, transition, reducedMotion }: HeroSectionProps) {
+export function HeroSection({ sectionRef, act: scrollAct, transition, reducedMotion }: HeroSectionProps) {
+  // Reduced motion reports act=1 on entry, which would fade the headline straight out; hold the opening frame instead.
+  const act = reducedMotion ? 0 : scrollAct;
   const heroFadeOut = ease(act, 0, 0.32);
   const cloudBuild = ease(act, 0.15, 0.85);
 
@@ -130,7 +132,7 @@ export function HeroSection({ sectionRef, act, transition, reducedMotion }: Hero
         </p>
         <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
           <CreateGarageCta style={ctaPrimaryStyle}>Create Your Garage</CreateGarageCta>
-          <Link href="#reveal" style={ctaTertiaryStyle} onClick={handleSeeHowItWorksClick}>
+          <Link href="#features" style={ctaTertiaryStyle} onClick={handleSeeHowItWorksClick}>
             See How It Works ↓
           </Link>
         </div>

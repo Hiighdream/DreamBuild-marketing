@@ -65,10 +65,7 @@ export function SiteFooter() {
           <div style={columnListStyle}>
             <Link href="/#bays" style={linkStyle}>Digital Garage</Link>
             <Link href="/#maintenance" style={linkStyle}>Vehicle Maintenance</Link>
-            <Link href="/#leroy" style={linkStyle}>Leroy</Link>
             <Link href="/#parts" style={linkStyle}>Parts</Link>
-            <Link href="/#community" style={linkStyle}>Community</Link>
-            <Link href="/#events" style={linkStyle}>Events</Link>
             <Link href="/roadmap" style={linkStyle}>Roadmap</Link>
           </div>
         </div>

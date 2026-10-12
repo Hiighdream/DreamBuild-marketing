@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 
 export const eyebrowStyle: CSSProperties = {
-  fontSize: 11,
+  fontSize: 13,
   fontWeight: 700,
   letterSpacing: "0.1em",
   color: "#3DC9F7",
@@ -18,8 +18,8 @@ export const h1Style: CSSProperties = {
 };
 
 export const heroBodyStyle: CSSProperties = {
-  fontSize: 15,
-  lineHeight: 1.5,
+  fontSize: 18,
+  lineHeight: 1.55,
   color: "#C7D1DB",
   maxWidth: "38ch",
   margin: "0 0 18px",
@@ -36,25 +36,26 @@ export function h2Style(maxWidthCh: number): CSSProperties {
 }
 
 export const sectionBodyStyle: CSSProperties = {
-  fontSize: 17,
+  fontSize: 18,
   lineHeight: 1.65,
   color: "#C7D1DB",
   margin: 0,
 };
 
 export const sectionQualifierStyle: CSSProperties = {
-  fontSize: 12,
-  color: "#5C7188",
+  fontSize: 14,
+  lineHeight: 1.55,
+  color: "#8FA3B8",
   maxWidth: "46ch",
   margin: 0,
 };
 
 export const ctaPrimaryStyle: CSSProperties = {
-  padding: "11px 20px",
+  padding: "13px 24px",
   background: "#3DC9F7",
   color: "#0A1A2F",
   fontWeight: 700,
-  fontSize: 13,
+  fontSize: 15,
   borderRadius: 4,
   textDecoration: "none",
 };
@@ -64,13 +65,13 @@ export const ctaSecondaryStyle: CSSProperties = {
   border: "1px solid rgba(244,246,248,0.3)",
   color: "#F4F6F8",
   fontWeight: 600,
-  fontSize: 13,
+  fontSize: 15,
   borderRadius: 4,
   textDecoration: "none",
 };
 
 export const ctaTertiaryStyle: CSSProperties = {
-  fontSize: 12,
+  fontSize: 15,
   fontWeight: 600,
   color: "#9BA9B8",
   padding: "11px 4px",

@@ -36,7 +36,7 @@ export function FinalCtaSection() {
         >
           Bring your vehicles into one connected garage.
         </h2>
-        <p style={{ fontSize: 17, lineHeight: 1.65, color: "#C7D1DB", margin: "0 0 36px" }}>
+        <p style={{ fontSize: 18, lineHeight: 1.65, color: "#C7D1DB", margin: "0 0 36px" }}>
           Create a DreamBuild account to organize vehicle information, preserve service history,
           follow maintenance needs, explore automotive resources, and grow with the platform as new
           capabilities are introduced.
@@ -45,7 +45,7 @@ export function FinalCtaSection() {
           <CreateGarageCta style={ctaPrimaryLargeStyle}>Create Your Garage</CreateGarageCta>
         </div>
         <div style={{ marginTop: 18 }}>
-          <Link href="/roadmap" style={{ fontSize: 13, color: "#5C7188" }}>
+          <Link href="/roadmap" style={{ fontSize: 15, color: "#9BA9B8" }}>
             Explore the Roadmap →
           </Link>
         </div>
