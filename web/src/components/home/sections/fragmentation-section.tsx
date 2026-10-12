@@ -19,34 +19,34 @@ const CARD_STYLE_BASE: CSSProperties = {
   borderRadius: 4,
   fontSize: 15,
   color: "#C7D1DB",
-  width: 220,
+  width: "clamp(150px, 15vw, 220px)",
 };
 
+// Cards start in one row near the top, then converge on the "DreamBuild brings those pieces together." line.
+const ROW_TOP = 17;
+const MERGE_POINT = { x: 50, y: 40 };
+
 const CARDS = [
-  { from: [15, 20], to: [44, 42], delay: [0, 0.3], label: "Service receipt", sub: "glove box, 2024" },
-  { from: [78, 18], to: [52, 40], delay: [0.05, 0.35], label: "Maintenance app", sub: "separate login" },
-  { from: [12, 40], to: [46, 58], delay: [0.1, 0.4], label: "Parts research", sub: "12 browser tabs" },
-  { from: [85, 68], to: [54, 58], delay: [0.15, 0.45], label: "Community thread", sub: "unrelated forum" },
-  { from: [50, 15], to: [50, 44], delay: [0.2, 0.5], label: "Local event", sub: "disconnected feed" },
+  { x: 12, label: "Service receipt", sub: "glove box, 2024" },
+  { x: 31, label: "Maintenance app", sub: "separate login" },
+  { x: 50, label: "Parts research", sub: "12 browser tabs" },
+  { x: 69, label: "Community thread", sub: "unrelated forum" },
+  { x: 88, label: "Local event", sub: "disconnected feed" },
 ] as const;
 
 export function FragmentationSection({ sectionRef, act: scrollAct, transition, reducedMotion }: FragmentationSectionProps) {
-  // Reduced motion reports act=1 on entry, past every fade-out; 0.4 is the frame where cards and copy are both fully shown.
-  const act = reducedMotion ? 0.4 : scrollAct;
-  const converge = ease(act, 0.55, 1);
+  // Reduced motion reports act=1 on entry, past every fade-out; 0.3 is the frame where the card row and copy are both fully shown.
+  const act = reducedMotion ? 0.3 : scrollAct;
+  const converge = ease(act, 0.45, 0.8);
 
-  const cardStyle = (
-    [fromX, fromY]: readonly [number, number],
-    [toX, toY]: readonly [number, number],
-    [delayA, delayB]: readonly [number, number]
-  ): CSSProperties => {
-    const local = ease(act, delayA, delayB);
+  const cardStyle = (x: number, index: number): CSSProperties => {
+    const enter = ease(act, index * 0.03, index * 0.03 + 0.15);
     return {
       position: "absolute",
-      left: lerp(fromX, toX, converge) + "%",
-      top: lerp(fromY, toY, converge) + "%",
-      opacity: lerp(0, 1, ease(act, 0, 0.25)) * lerp(1, 0, ease(act, 0.85, 1)),
-      transform: `translate(-50%,-50%) scale(${lerp(0.85, 1, local)})`,
+      left: lerp(x, MERGE_POINT.x, converge) + "%",
+      top: lerp(ROW_TOP, MERGE_POINT.y, converge) + "%",
+      opacity: enter * (1 - ease(act, 0.68, 0.82)),
+      transform: `translate(-50%,-50%) translateY(${lerp(20, 0, enter)}px) scale(${lerp(1, 0.55, converge)})`,
       transition,
     };
   };
@@ -76,20 +76,22 @@ export function FragmentationSection({ sectionRef, act: scrollAct, transition, r
 
   const textWrapStyle: CSSProperties = {
     position: "absolute",
-    left: "8%",
-    bottom: "10%",
-    maxWidth: 600,
-    opacity: lerp(0, 1, ease(act, 0, 0.3)) * lerp(1, 0, ease(act, 0.6, 0.85)),
+    left: "50%",
+    top: "26%",
+    transform: "translateX(-50%)",
+    width: "min(780px, 88vw)",
+    textAlign: "center",
+    opacity: ease(act, 0, 0.2) * (1 - ease(act, 0.38, 0.52)),
     transition,
   };
 
   const transitionTextStyle: CSSProperties = {
     position: "absolute",
     left: "50%",
-    top: "50%",
+    top: `${MERGE_POINT.y}%`,
     transform: "translate(-50%,-50%)",
     width: "80%",
-    opacity: lerp(0, 1, ease(act, 0.65, 0.9)) * lerp(1, 0, ease(act, 0.95, 1)),
+    opacity: ease(act, 0.7, 0.88) * (1 - ease(act, 0.95, 1)),
     transition,
   };
 
@@ -131,8 +133,8 @@ export function FragmentationSection({ sectionRef, act: scrollAct, transition, r
         </>
       }
     >
-      {CARDS.map((card) => (
-        <div key={card.label} style={cardStyle(card.from, card.to, card.delay)}>
+      {CARDS.map((card, i) => (
+        <div key={card.label} style={cardStyle(card.x, i)}>
           <div style={CARD_STYLE_BASE}>
             {card.label}
             <br />
@@ -141,8 +143,8 @@ export function FragmentationSection({ sectionRef, act: scrollAct, transition, r
         </div>
       ))}
       <div style={textWrapStyle}>
-        <h2 style={h2Style(16)}>Your vehicle information is scattered.</h2>
-        <p style={{ ...sectionBodyStyle, maxWidth: "52ch" }}>
+        <h2 style={{ ...h2Style(22), margin: "0 auto 18px" }}>Your vehicle information is scattered.</h2>
+        <p style={{ ...sectionBodyStyle, maxWidth: "60ch", margin: "0 auto" }}>
           Service records sit in glove boxes. Maintenance reminders live in separate apps. Parts
           research spreads across browser tabs. Events, shops, and automotive communities are
           disconnected from the vehicles you actually own.
