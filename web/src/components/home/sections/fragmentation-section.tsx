@@ -14,23 +14,25 @@ type FragmentationSectionProps = {
 
 const CARD_STYLE_BASE: CSSProperties = {
   padding: "14px 18px",
-  background: "rgba(19,38,63,0.9)",
+  background: "rgba(19,38,63,0.95)",
   border: "1px solid rgba(244,246,248,0.15)",
   borderRadius: 4,
-  fontSize: 13,
+  fontSize: 15,
   color: "#C7D1DB",
-  width: 200,
+  width: 220,
 };
 
 const CARDS = [
-  { from: [15, 20], to: [44, 42], delay: [0, 0.3], label: "🧾 Service receipt", sub: "glove box, 2024" },
-  { from: [78, 18], to: [52, 40], delay: [0.05, 0.35], label: "🔔 Maintenance app", sub: "separate login" },
-  { from: [10, 65], to: [46, 58], delay: [0.1, 0.4], label: "🛒 Parts research", sub: "12 browser tabs" },
-  { from: [85, 68], to: [54, 58], delay: [0.15, 0.45], label: "💬 Community thread", sub: "unrelated forum" },
-  { from: [50, 15], to: [50, 44], delay: [0.2, 0.5], label: "📍 Local event", sub: "disconnected feed" },
+  { from: [15, 20], to: [44, 42], delay: [0, 0.3], label: "Service receipt", sub: "glove box, 2024" },
+  { from: [78, 18], to: [52, 40], delay: [0.05, 0.35], label: "Maintenance app", sub: "separate login" },
+  { from: [12, 40], to: [46, 58], delay: [0.1, 0.4], label: "Parts research", sub: "12 browser tabs" },
+  { from: [85, 68], to: [54, 58], delay: [0.15, 0.45], label: "Community thread", sub: "unrelated forum" },
+  { from: [50, 15], to: [50, 44], delay: [0.2, 0.5], label: "Local event", sub: "disconnected feed" },
 ] as const;
 
-export function FragmentationSection({ sectionRef, act, transition, reducedMotion }: FragmentationSectionProps) {
+export function FragmentationSection({ sectionRef, act: scrollAct, transition, reducedMotion }: FragmentationSectionProps) {
+  // Reduced motion reports act=1 on entry, past every fade-out; 0.4 is the frame where cards and copy are both fully shown.
+  const act = reducedMotion ? 0.4 : scrollAct;
   const converge = ease(act, 0.55, 1);
 
   const cardStyle = (
@@ -123,6 +125,9 @@ export function FragmentationSection({ sectionRef, act, transition, reducedMotio
           {cloudsBg.map((c) => (
             <div key={c.id} style={c.style} />
           ))}
+          {cloudsFg.map((c) => (
+            <div key={c.id} style={c.style} />
+          ))}
         </>
       }
     >
@@ -131,7 +136,7 @@ export function FragmentationSection({ sectionRef, act, transition, reducedMotio
           <div style={CARD_STYLE_BASE}>
             {card.label}
             <br />
-            <span style={{ color: "#5C7188", fontSize: 11 }}>{card.sub}</span>
+            <span style={{ color: "#9BA9B8", fontSize: 13 }}>{card.sub}</span>
           </div>
         </div>
       ))}
@@ -156,9 +161,6 @@ export function FragmentationSection({ sectionRef, act, transition, reducedMotio
           DreamBuild brings those pieces together.
         </p>
       </div>
-      {cloudsFg.map((c) => (
-        <div key={c.id} style={c.style} />
-      ))}
     </PinnedSection>
   );
 }

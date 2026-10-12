@@ -12,7 +12,7 @@ const labelStyle: CSSProperties = {
   display: "flex",
   flexDirection: "column",
   gap: 6,
-  fontSize: 12,
+  fontSize: 14,
   color: "#9BA9B8",
   textAlign: "left",
 };
@@ -23,7 +23,7 @@ const inputStyle: CSSProperties = {
   border: "1px solid rgba(244,246,248,0.15)",
   borderRadius: 4,
   color: "#F4F6F8",
-  fontSize: 14,
+  fontSize: 16,
   minWidth: 220,
 };
 
@@ -32,7 +32,7 @@ const joinButtonStyle = (disabled: boolean): CSSProperties => ({
   background: "#3DC9F7",
   color: "#0A1A2F",
   fontWeight: 700,
-  fontSize: 14,
+  fontSize: 16,
   borderRadius: 4,
   border: "none",
   cursor: disabled ? "default" : "pointer",
@@ -154,13 +154,13 @@ export function WaitlistForm() {
                 {submitting ? "Joining…" : "Join the Web Launch List"}
               </button>
             </form>
-            <p role="status" aria-live="polite" style={{ minHeight: 16, margin: "10px 0 0", fontSize: 12, color: "#3DC9F7" }}>
+            <p role="status" aria-live="polite" style={{ minHeight: 16, margin: "10px 0 0", fontSize: 14, color: "#3DC9F7" }}>
               {submitting ? "Submitting…" : ""}
             </p>
-            <p style={{ fontSize: 12, color: "#5C7188", maxWidth: 480, margin: "10px auto 0", lineHeight: 1.6 }}>
+            <p style={{ fontSize: 13, color: "#8FA3B8", maxWidth: 480, margin: "10px auto 0", lineHeight: 1.6 }}>
               By joining, you agree to receive DreamBuild launch and product emails. You can unsubscribe at
               any time. See our{" "}
-              <Link href="/privacy" style={{ fontSize: 12 }}>
+              <Link href="/privacy" style={{ fontSize: 13 }}>
                 Privacy Policy
               </Link>
               .
