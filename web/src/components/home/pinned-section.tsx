@@ -21,7 +21,7 @@ const bottomFadeStyle: CSSProperties = {
 type PinnedSectionProps = {
   id: string;
   sectionRef: (el: HTMLElement | null) => void;
-  /** Wrapper scroll-runway height in vh, e.g. 320 for the hero. Collapses to 100vh under reduced motion. */
+  /** Wrapper scroll-runway height in vh, e.g. 200 for the hero. Collapses to 100vh under reduced motion. */
   heightVh: number;
   reducedMotion: boolean;
   /** The section's background layer(s) — gradient washes, vehicle underlay, clouds. */

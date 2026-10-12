@@ -86,7 +86,7 @@ export function HeroSection({ sectionRef, act: scrollAct, transition, reducedMot
     <PinnedSection
       id="hero"
       sectionRef={sectionRef}
-      heightVh={320}
+      heightVh={200}
       reducedMotion={reducedMotion}
       background={
         <>
