@@ -56,6 +56,67 @@ a:hover {
   }
 }
 
+/* Holo's blog embed ships light-theme styles; the #holo-blog id outranks its
+   class selectors so these win regardless of injection order. */
+#holo-blog .holo-blog {
+  font-family: var(--font-body);
+  color: #F4F6F8;
+}
+
+#holo-blog .holo-blog-back {
+  border-color: rgba(244, 246, 248, 0.2);
+  color: #C7D1DB;
+}
+
+#holo-blog .holo-blog-back:hover {
+  background: rgba(19, 38, 63, 0.6);
+  border-color: rgba(61, 201, 247, 0.4);
+}
+
+#holo-blog .holo-blog-card {
+  background: rgba(19, 38, 63, 0.6);
+  border-color: rgba(61, 201, 247, 0.15);
+}
+
+#holo-blog .holo-blog-card:hover {
+  border-color: rgba(61, 201, 247, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+#holo-blog .holo-blog-card-thumb,
+#holo-blog .holo-blog-article-hero {
+  background: #13263F;
+}
+
+#holo-blog .holo-blog-card-title,
+#holo-blog .holo-blog-article-title {
+  font-family: var(--font-display);
+  color: #F4F6F8;
+}
+
+#holo-blog .holo-blog-card-excerpt {
+  color: #C7D1DB;
+}
+
+#holo-blog .holo-blog-card-date,
+#holo-blog .holo-blog-article-date {
+  color: #9BA9B8;
+}
+
+#holo-blog .holo-blog-article-content {
+  color: #DDE4EA;
+}
+
+#holo-blog .holo-blog-article-content a {
+  color: #3DC9F7;
+  text-decoration: underline;
+}
+
+#holo-blog .holo-blog-empty {
+  color: #9BA9B8;
+  border-color: rgba(244, 246, 248, 0.15);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
