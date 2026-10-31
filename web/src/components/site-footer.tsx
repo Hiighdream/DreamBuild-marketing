@@ -37,14 +37,14 @@ export function SiteFooter() {
     >
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "minmax(0,1.3fr) repeat(4,minmax(0,1fr))",
+          display: "flex",
+          flexWrap: "wrap",
           gap: 36,
           maxWidth: 1280,
           margin: "0 auto 48px",
         }}
       >
-        <div>
+        <div style={{ flex: "1 1 220px" }}>
           <div
             style={{
               fontFamily: "var(--font-display)",
@@ -60,49 +60,59 @@ export function SiteFooter() {
           </p>
         </div>
 
-        <div>
-          <div style={columnHeadingStyle}>PRODUCT</div>
-          <div style={columnListStyle}>
-            <Link href="/#bays" style={linkStyle}>Digital Garage</Link>
-            <Link href="/#maintenance" style={linkStyle}>Vehicle Maintenance</Link>
-            <Link href="/#parts" style={linkStyle}>Parts</Link>
-            <Link href="/roadmap" style={linkStyle}>Roadmap</Link>
+        <div
+          style={{
+            flex: "4 1 480px",
+            minWidth: 0,
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(110px, 1fr))",
+            gap: 36,
+          }}
+        >
+          <div>
+            <div style={columnHeadingStyle}>PRODUCT</div>
+            <div style={columnListStyle}>
+              <Link href="/#bays" style={linkStyle}>Digital Garage</Link>
+              <Link href="/#maintenance" style={linkStyle}>Vehicle Maintenance</Link>
+              <Link href="/#parts" style={linkStyle}>Parts</Link>
+              <Link href="/roadmap" style={linkStyle}>Roadmap</Link>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <div style={columnHeadingStyle}>COMPANY</div>
-          <div style={columnListStyle}>
-            <Link href="/about" style={linkStyle}>About</Link>
-            <Link href="/contact" style={linkStyle}>Contact</Link>
-            {SHOW_RESOURCES && (
-              <Link href="/resources" style={linkStyle}>Resources</Link>
-            )}
+          <div>
+            <div style={columnHeadingStyle}>COMPANY</div>
+            <div style={columnListStyle}>
+              <Link href="/about" style={linkStyle}>About</Link>
+              <Link href="/contact" style={linkStyle}>Contact</Link>
+              {SHOW_RESOURCES && (
+                <Link href="/resources" style={linkStyle}>Resources</Link>
+              )}
+            </div>
           </div>
-        </div>
 
-        <div>
-          <div style={columnHeadingStyle}>ACCOUNT</div>
-          <div style={columnListStyle}>
-            {IS_PUBLIC_LAUNCH && (
-              <a href={AUTH_URL} style={linkStyle}>Sign In</a>
-            )}
-            <CreateGarageCta style={linkStyle}>Create Your Garage</CreateGarageCta>
+          <div>
+            <div style={columnHeadingStyle}>ACCOUNT</div>
+            <div style={columnListStyle}>
+              {IS_PUBLIC_LAUNCH && (
+                <a href={AUTH_URL} style={linkStyle}>Sign In</a>
+              )}
+              <CreateGarageCta style={linkStyle}>Create Your Garage</CreateGarageCta>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <div style={columnHeadingStyle}>COMMUNITY</div>
-          <div style={columnListStyle}>
-            <a href={DISCORD_URL} style={linkStyle}>Discord</a>
+          <div>
+            <div style={columnHeadingStyle}>COMMUNITY</div>
+            <div style={columnListStyle}>
+              <a href={DISCORD_URL} style={linkStyle}>Discord</a>
+            </div>
           </div>
-        </div>
 
-        <div>
-          <div style={columnHeadingStyle}>LEGAL</div>
-          <div style={columnListStyle}>
-            <Link href="/privacy" style={linkStyle}>Privacy</Link>
-            <Link href="/terms" style={linkStyle}>Terms</Link>
+          <div>
+            <div style={columnHeadingStyle}>LEGAL</div>
+            <div style={columnListStyle}>
+              <Link href="/privacy" style={linkStyle}>Privacy</Link>
+              <Link href="/terms" style={linkStyle}>Terms</Link>
+            </div>
           </div>
         </div>
       </div>

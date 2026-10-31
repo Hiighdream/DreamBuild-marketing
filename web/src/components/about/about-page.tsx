@@ -199,7 +199,7 @@ export function AboutPage() {
           <h2 style={{ ...h2Style, marginBottom: 40, textAlign: "center" }}>
             What DreamBuild believes
           </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 16 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 250px), 1fr))", gap: 16 }}>
             {PRINCIPLES.map((p) => (
               <div
                 key={p.title}
@@ -246,7 +246,7 @@ export function AboutPage() {
           >
             Built for every kind of vehicle owner
           </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 18 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 250px), 1fr))", gap: 18 }}>
             {AUDIENCES.map((a) => (
               <div
                 key={a.id}
