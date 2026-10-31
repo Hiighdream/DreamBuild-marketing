@@ -31,6 +31,31 @@ a:hover {
   color: #0a1a2f;
 }
 
+/* Lives here rather than inline because it needs a media query. */
+.legal-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+  gap: 56px;
+}
+
+.legal-layout > aside {
+  position: sticky;
+  top: 110px;
+  align-self: start;
+}
+
+/* Stacked, a sticky contents list would ride over the policy text. */
+@media (max-width: 900px) {
+  .legal-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .legal-layout > aside {
+    position: static;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
