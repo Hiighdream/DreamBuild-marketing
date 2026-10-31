@@ -102,8 +102,8 @@ export function LegalPage({
       </section>
 
       <section style={{ padding: "0 8vw 100px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto", display: "grid", gridTemplateColumns: "minmax(0,220px) minmax(0,1fr)", gap: 56 }}>
-          <aside style={{ position: "sticky", top: 110, alignSelf: "start", display: "flex", flexDirection: "column", gap: 9 }}>
+        <div className="legal-layout" style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <aside style={{ display: "flex", flexDirection: "column", gap: 9 }}>
             <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.06em", color: "#9BA9B8", marginBottom: 4 }}>
               SECTIONS
             </div>
