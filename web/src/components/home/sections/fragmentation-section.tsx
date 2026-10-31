@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { ImageSlot } from "@/components/image-slot";
+import { useMediaQuery } from "@/hooks/use-media-query";
 import { makeClouds } from "@/lib/clouds";
 import { ease, lerp } from "@/lib/motion-math";
 import { PinnedSection } from "../pinned-section";
@@ -22,6 +23,13 @@ const CARD_STYLE_BASE: CSSProperties = {
   width: "clamp(150px, 15vw, 220px)",
 };
 
+const NARROW_CARD_STYLE: CSSProperties = {
+  ...CARD_STYLE_BASE,
+  padding: "10px 12px",
+  fontSize: 13,
+  width: "30vw",
+};
+
 // Cards start in one row near the top, then converge on the "DreamBuild brings those pieces together." line.
 const ROW_TOP = 17;
 const MERGE_POINT = { x: 50, y: 40 };
@@ -34,17 +42,32 @@ const CARDS = [
   { x: 88, label: "Local event", sub: "disconnected feed" },
 ] as const;
 
+// Phones can't fit five cards in a row, so they sit 3 + 2 below the fixed header. Tops are px, not %, because the header's height doesn't scale with the viewport.
+const NARROW_QUERY = "(max-width: 640px)";
+const NARROW_SLOTS = [
+  { x: 18, top: 180 },
+  { x: 50, top: 180 },
+  { x: 82, top: 180 },
+  { x: 32, top: 255 },
+  { x: 68, top: 255 },
+] as const;
+const NARROW_TEXT_TOP = 300;
+
 export function FragmentationSection({ sectionRef, act: scrollAct, transition, reducedMotion }: FragmentationSectionProps) {
   // Reduced motion reports act=1 on entry, past every fade-out; 0.3 is the frame where the card row and copy are both fully shown.
   const act = reducedMotion ? 0.3 : scrollAct;
   const converge = ease(act, 0.45, 0.8);
+  const narrow = useMediaQuery(NARROW_QUERY);
 
-  const cardStyle = (x: number, index: number): CSSProperties => {
+  const cardStyle = (index: number): CSSProperties => {
     const enter = ease(act, index * 0.03, index * 0.03 + 0.15);
+    const start = narrow
+      ? { x: NARROW_SLOTS[index].x, topPct: 0, topPx: NARROW_SLOTS[index].top }
+      : { x: CARDS[index].x, topPct: ROW_TOP, topPx: 0 };
     return {
       position: "absolute",
-      left: lerp(x, MERGE_POINT.x, converge) + "%",
-      top: lerp(ROW_TOP, MERGE_POINT.y, converge) + "%",
+      left: lerp(start.x, MERGE_POINT.x, converge) + "%",
+      top: `calc(${lerp(start.topPct, MERGE_POINT.y, converge)}% + ${lerp(start.topPx, 0, converge)}px)`,
       opacity: enter * (1 - ease(act, 0.68, 0.82)),
       transform: `translate(-50%,-50%) translateY(${lerp(20, 0, enter)}px) scale(${lerp(1, 0.55, converge)})`,
       transition,
@@ -77,7 +100,7 @@ export function FragmentationSection({ sectionRef, act: scrollAct, transition, r
   const textWrapStyle: CSSProperties = {
     position: "absolute",
     left: "50%",
-    top: "26%",
+    top: narrow ? NARROW_TEXT_TOP : "26%",
     transform: "translateX(-50%)",
     width: "min(780px, 88vw)",
     textAlign: "center",
@@ -134,17 +157,17 @@ export function FragmentationSection({ sectionRef, act: scrollAct, transition, r
       }
     >
       {CARDS.map((card, i) => (
-        <div key={card.label} style={cardStyle(card.x, i)}>
-          <div style={CARD_STYLE_BASE}>
+        <div key={card.label} style={cardStyle(i)}>
+          <div style={narrow ? NARROW_CARD_STYLE : CARD_STYLE_BASE}>
             {card.label}
             <br />
-            <span style={{ color: "#9BA9B8", fontSize: 13 }}>{card.sub}</span>
+            <span style={{ color: "#9BA9B8", fontSize: narrow ? 11 : 13 }}>{card.sub}</span>
           </div>
         </div>
       ))}
       <div style={textWrapStyle}>
         <h2 style={{ ...h2Style(22), margin: "0 auto 18px" }}>Your vehicle information is scattered.</h2>
-        <p style={{ ...sectionBodyStyle, maxWidth: "60ch", margin: "0 auto" }}>
+        <p style={{ ...sectionBodyStyle, ...(narrow && { fontSize: 16 }), maxWidth: "60ch", margin: "0 auto" }}>
           Service records sit in glove boxes. Maintenance reminders live in separate apps. Parts
           research spreads across browser tabs. Events, shops, and automotive communities are
           disconnected from the vehicles you actually own.
