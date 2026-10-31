@@ -4,6 +4,10 @@ import type { NextConfig } from "next";
  * waitlist widget script and its form submission (see src/lib/site.ts). */
 const LAUNCHLIST_ORIGIN = "https://getlaunchlist.com";
 
+/** Vercel Speed Insights domains for analytics tracking. */
+const VERCEL_SPEED_INSIGHTS_SCRIPT = "https://va.vercel-scripts.com";
+const VERCEL_SPEED_INSIGHTS_VITALS = "https://vitals.vercel-insights.com";
+
 /**
  * 'unsafe-inline' on script-src is a deliberate, narrower trade-off, not an
  * oversight: Next.js injects same-origin inline scripts for RSC hydration,
@@ -19,11 +23,11 @@ const LAUNCHLIST_ORIGIN = "https://getlaunchlist.com";
  */
 const CONTENT_SECURITY_POLICY = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' ${LAUNCHLIST_ORIGIN}`,
+  `script-src 'self' 'unsafe-inline' ${LAUNCHLIST_ORIGIN} ${VERCEL_SPEED_INSIGHTS_SCRIPT}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data:",
   "font-src 'self' data:",
-  `connect-src 'self' ${LAUNCHLIST_ORIGIN}`,
+  `connect-src 'self' ${LAUNCHLIST_ORIGIN} ${VERCEL_SPEED_INSIGHTS_VITALS}`,
   `form-action 'self' ${LAUNCHLIST_ORIGIN}`,
   "frame-ancestors 'none'",
   "base-uri 'self'",
