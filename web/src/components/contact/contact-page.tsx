@@ -69,7 +69,7 @@ export function ContactPage() {
 
       {/* CATEGORIES */}
       <section ref={refFor("categories")} style={{ position: "relative", padding: "0 8vw 80px", ...reveal("categories") }}>
-        <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 12 }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: 12 }}>
           {CATEGORIES.map((label) => (
             <div
               key={label}
@@ -97,11 +97,11 @@ export function ContactPage() {
             background: "rgba(19,38,63,0.6)",
             border: "1px solid rgba(244,246,248,0.1)",
             borderRadius: 10,
-            padding: 40,
+            padding: "clamp(20px, 6vw, 40px)",
           }}
         >
           <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
-            <div style={{ display: "grid", gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)", gap: 18 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: 18 }}>
               <label style={labelStyle}>
                 Name
                 <input type="text" placeholder="Your name" style={inputStyle} />
