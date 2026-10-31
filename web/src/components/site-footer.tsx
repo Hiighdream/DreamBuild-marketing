@@ -83,6 +83,8 @@ export function SiteFooter() {
             <div style={columnHeadingStyle}>COMPANY</div>
             <div style={columnListStyle}>
               <Link href="/about" style={linkStyle}>About</Link>
+              {/* Plain <a>, not <Link> — see fullLoad in site-header.tsx. */}
+              <a href="/blog" style={linkStyle}>Blog</a>
               <Link href="/contact" style={linkStyle}>Contact</Link>
               {SHOW_RESOURCES && (
                 <Link href="/resources" style={linkStyle}>Resources</Link>

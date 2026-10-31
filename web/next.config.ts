@@ -4,6 +4,11 @@ import type { NextConfig } from "next";
  * waitlist widget script and its form submission (see src/lib/site.ts). */
 const LAUNCHLIST_ORIGIN = "https://getlaunchlist.com";
 
+/** Holo AI's blog embed (see HOLO_EMBED_SCRIPT_URL in src/lib/site.ts). Only
+ * /blog's CSP allows it — the script gets full DOM access and inserts post
+ * HTML unsanitized, so it's confined to the one page that needs it. */
+const HOLO_EMBED_ORIGIN = "https://prod-api-holo-ai.fly.dev";
+
 /** Vercel Speed Insights domains for analytics tracking. */
 const VERCEL_SPEED_INSIGHTS_SCRIPT = "https://va.vercel-scripts.com";
 const VERCEL_SPEED_INSIGHTS_VITALS = "https://vitals.vercel-insights.com";
@@ -21,11 +26,11 @@ const VERCEL_SPEED_INSIGHTS_VITALS = "https://vitals.vercel-insights.com";
  * blocks the more common real-world case: loading a script from any origin
  * other than this site or the LaunchList widget.
  */
-const CONTENT_SECURITY_POLICY = [
+const contentSecurityPolicy = ({ extraScriptSrc = "", extraImgSrc = "" } = {}) => [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' ${LAUNCHLIST_ORIGIN} ${VERCEL_SPEED_INSIGHTS_SCRIPT}`,
+  `script-src 'self' 'unsafe-inline' ${LAUNCHLIST_ORIGIN} ${VERCEL_SPEED_INSIGHTS_SCRIPT} ${extraScriptSrc}`.trim(),
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data:",
+  `img-src 'self' data: ${extraImgSrc}`.trim(),
   "font-src 'self' data:",
   `connect-src 'self' ${LAUNCHLIST_ORIGIN} ${VERCEL_SPEED_INSIGHTS_VITALS}`,
   `form-action 'self' ${LAUNCHLIST_ORIGIN}`,
@@ -35,7 +40,7 @@ const CONTENT_SECURITY_POLICY = [
 ].join("; ");
 
 const SECURITY_HEADERS = [
-  { key: "Content-Security-Policy", value: CONTENT_SECURITY_POLICY },
+  { key: "Content-Security-Policy", value: contentSecurityPolicy() },
   { key: "X-Frame-Options", value: "DENY" },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
@@ -45,7 +50,19 @@ const SECURITY_HEADERS = [
 
 const nextConfig: NextConfig = {
   async headers() {
-    return [{ source: "/(.*)", headers: SECURITY_HEADERS }];
+    return [
+      { source: "/(.*)", headers: SECURITY_HEADERS },
+      // Listed last so it overrides the site-wide CSP. Post images can come from any host Holo uses, hence https:.
+      {
+        source: "/blog",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: contentSecurityPolicy({ extraScriptSrc: HOLO_EMBED_ORIGIN, extraImgSrc: "https:" }),
+          },
+        ],
+      },
+    ];
   },
 };
 

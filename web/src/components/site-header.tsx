@@ -3,10 +3,14 @@ import type { CSSProperties } from "react";
 import { AUTH_URL, IS_PUBLIC_LAUNCH, SHOW_RESOURCES } from "@/lib/site";
 import { CreateGarageCta } from "./waitlist-ctas";
 
-export type NavKey = "roadmap" | "resources" | "about" | "contact" | "";
+export type NavKey = "roadmap" | "blog" | "resources" | "about" | "contact" | "";
 
-const NAV_ITEMS: { key: NavKey; label: string; href: string }[] = [
+/** fullLoad: link with a plain <a> so the browser loads a fresh document. /blog
+ * has its own CSP (see next.config.ts), and CSP is fixed per document, so a
+ * client-side <Link> navigation would keep the previous page's CSP and block Holo's embed. */
+const NAV_ITEMS: { key: NavKey; label: string; href: string; fullLoad?: boolean }[] = [
   { key: "roadmap", label: "ROADMAP", href: "/roadmap" },
+  { key: "blog", label: "BLOG", href: "/blog", fullLoad: true },
   ...(SHOW_RESOURCES
     ? [{ key: "resources" as const, label: "RESOURCES", href: "/resources" }]
     : []),
@@ -64,11 +68,17 @@ export function SiteHeader({ active = "" }: { active?: NavKey }) {
           justifyContent: "center",
         }}
       >
-        {NAV_ITEMS.map((item) => (
-          <Link key={item.key} href={item.href} style={navLinkStyle(active === item.key)}>
-            {item.label}
-          </Link>
-        ))}
+        {NAV_ITEMS.map((item) =>
+          item.fullLoad ? (
+            <a key={item.key} href={item.href} style={navLinkStyle(active === item.key)}>
+              {item.label}
+            </a>
+          ) : (
+            <Link key={item.key} href={item.href} style={navLinkStyle(active === item.key)}>
+              {item.label}
+            </Link>
+          ),
+        )}
         {IS_PUBLIC_LAUNCH && (
           <a
             href={AUTH_URL}

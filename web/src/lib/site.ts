@@ -39,6 +39,12 @@ export const LAUNCHLIST_FORM_URL = "https://getlaunchlist.com/s/rI8bgt";
  * forwards the page's query string onto the form action, nothing else. */
 export const LAUNCHLIST_SCRIPT_URL = "https://getlaunchlist.com/js/widget-diy.js";
 
+/** Holo AI's blog embed for /blog. The publish key in the path is Holo-issued
+ * and public by design (it ships in the page). Its origin is allowed by the
+ * /blog-only CSP in next.config.ts. */
+export const HOLO_EMBED_SCRIPT_URL =
+  "https://prod-api-holo-ai.fly.dev/public/seo/embed/17e3d5ed-7272-443c-b6b1-193d09d1eb5a.js";
+
 /** DreamBuild's community Discord invite. */
 export const DISCORD_URL = "https://discord.gg/AkYXJyTmSc";
 
